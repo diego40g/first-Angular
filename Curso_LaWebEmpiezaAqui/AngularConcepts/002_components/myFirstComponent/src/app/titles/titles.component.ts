@@ -17,9 +17,16 @@ export class TitlesComponent implements OnInit{
   image: string = 'https://static.thenounproject.com/png/102903-200.png'
   inputValue: string = "Hello I'm new input"
 
+  email: string = '';
+  password: string = '';
+
   constructor() {}
 
   ngOnInit() {
 
+  }
+
+  login(){
+    console.log(this.email, '/', this.password)
   }
 }

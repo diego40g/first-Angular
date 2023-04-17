@@ -7,4 +7,15 @@
 
 <img [src]="image" alt="">
 
-<input type="text" [placeholder]="inputValue">
+<input type="text" [placeholder]="" [(ngModel)]="inputValue">
+<p>{{inputValue}}</p>
+
+<label for="">Email
+  <input type="email" [(ngModel)]='email'>
+</label>
+
+<label for="">Password
+  <input type="password" [(ngModel)]='password'>
+</label>
+
+<button (click)="login()">Send</button>
