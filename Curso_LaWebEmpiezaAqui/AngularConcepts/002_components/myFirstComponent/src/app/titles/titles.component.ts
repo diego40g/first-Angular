@@ -14,6 +14,9 @@ export class TitlesComponent implements OnInit{
     age: 22
   }
 
+  image: string = 'https://static.thenounproject.com/png/102903-200.png'
+  inputValue: string = "Hello I'm new input"
+
   constructor() {}
 
   ngOnInit() {
