@@ -1,1 +1,8 @@
-<p>titles works!</p>
+<label for="">Email
+  <input type="email" [(ngModel)]='email'>
+</label>
+<label for="">Password
+  <input type="password" [(ngModel)]='password'>
+</label>
+
+<button (dblclick)="login()">Send</button>

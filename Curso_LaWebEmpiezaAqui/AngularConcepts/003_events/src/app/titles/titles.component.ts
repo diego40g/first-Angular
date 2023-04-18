@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./titles.component.css']
 })
 export class TitlesComponent {
+  email: string = ''
+  password: string = ''
 
+  login(){
+    alert('Ha precionado doble click')
+  }
 }
