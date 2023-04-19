@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./event-on-model-change.component.css']
 })
 export class EventOnModelChangeComponent {
+  inputModelChange: string = ""
+  totalChange=1
 
+  writeModel(){
+    console.log(`Esto cambio ${this.totalChange+=1} veces: ${this.inputModelChange} `)
+  }
 }
