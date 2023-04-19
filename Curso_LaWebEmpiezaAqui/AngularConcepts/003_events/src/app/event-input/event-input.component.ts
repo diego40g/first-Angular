@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./event-input.component.css']
 })
 export class EventInputComponent {
-
+  write(event: Event){
+    console.log((event.target as HTMLInputElement).value)
+  }
 }
