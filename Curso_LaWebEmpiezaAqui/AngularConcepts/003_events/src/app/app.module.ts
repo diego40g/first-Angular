@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { TitlesComponent } from './titles/titles.component';
 import { FormsModule } from '@angular/forms';
 import { EventOnModelChangeComponent } from './event-on-model-change/event-on-model-change.component';
+import { EventInputComponent } from './event-input/event-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitlesComponent,
-    EventOnModelChangeComponent
+    EventOnModelChangeComponent,
+    EventInputComponent
   ],
   imports: [
     BrowserModule,
