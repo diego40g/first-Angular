@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { EventOnModelChangeComponent } from './event-on-model-change/event-on-model-change.component';
 import { EventInputComponent } from './event-input/event-input.component';
 import { EventFocusComponent } from './event-focus/event-focus.component';
+import { KeyUpKeyDownComponent } from './key-up-key-down/key-up-key-down.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EventFocusComponent } from './event-focus/event-focus.component';
     TitlesComponent,
     EventOnModelChangeComponent,
     EventInputComponent,
-    EventFocusComponent
+    EventFocusComponent,
+    KeyUpKeyDownComponent
   ],
   imports: [
     BrowserModule,
