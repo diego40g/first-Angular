@@ -6,13 +6,15 @@ import { TitlesComponent } from './titles/titles.component';
 import { FormsModule } from '@angular/forms';
 import { EventOnModelChangeComponent } from './event-on-model-change/event-on-model-change.component';
 import { EventInputComponent } from './event-input/event-input.component';
+import { EventFocusComponent } from './event-focus/event-focus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitlesComponent,
     EventOnModelChangeComponent,
-    EventInputComponent
+    EventInputComponent,
+    EventFocusComponent
   ],
   imports: [
     BrowserModule,
