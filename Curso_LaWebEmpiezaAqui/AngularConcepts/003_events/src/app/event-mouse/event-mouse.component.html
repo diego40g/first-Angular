@@ -1,1 +1,21 @@
-<p>event-mouse works!</p>
+<label for="">Event Enter
+  <img
+    src="https://1000logos.net/wp-content/uploads/2016/11/google-logo.jpg"
+    alt="google image"
+    (mouseenter)="minSize($event)">
+</label>
+<br>
+<label for="">Event Leave
+  <img
+    src="https://1000logos.net/wp-content/uploads/2016/11/google-logo.jpg"
+    alt="google image"
+    (mouseleave)="maxSize($event)">
+</label>
+<br>
+<label for="">Event leave and enter
+  <img
+    src="https://1000logos.net/wp-content/uploads/2016/11/google-logo.jpg"
+    alt="google image"
+    (mouseenter)="minSize($event)"
+    (mouseleave)="maxSize($event)">
+</label>
