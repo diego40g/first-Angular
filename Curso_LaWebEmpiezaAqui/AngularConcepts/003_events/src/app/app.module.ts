@@ -8,6 +8,7 @@ import { EventOnModelChangeComponent } from './event-on-model-change/event-on-mo
 import { EventInputComponent } from './event-input/event-input.component';
 import { EventFocusComponent } from './event-focus/event-focus.component';
 import { KeyUpKeyDownComponent } from './key-up-key-down/key-up-key-down.component';
+import { EventMouseComponent } from './event-mouse/event-mouse.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { KeyUpKeyDownComponent } from './key-up-key-down/key-up-key-down.compone
     EventOnModelChangeComponent,
     EventInputComponent,
     EventFocusComponent,
-    KeyUpKeyDownComponent
+    KeyUpKeyDownComponent,
+    EventMouseComponent
   ],
   imports: [
     BrowserModule,
