@@ -9,6 +9,7 @@ import { EventInputComponent } from './event-input/event-input.component';
 import { EventFocusComponent } from './event-focus/event-focus.component';
 import { KeyUpKeyDownComponent } from './key-up-key-down/key-up-key-down.component';
 import { EventMouseComponent } from './event-mouse/event-mouse.component';
+import { DirectiveNgIfComponent } from './directive-ng-if/directive-ng-if.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EventMouseComponent } from './event-mouse/event-mouse.component';
     EventInputComponent,
     EventFocusComponent,
     KeyUpKeyDownComponent,
-    EventMouseComponent
+    EventMouseComponent,
+    DirectiveNgIfComponent
   ],
   imports: [
     BrowserModule,
