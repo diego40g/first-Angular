@@ -1,1 +1,6 @@
-<p>ng-if works!</p>
+<div *ngIf="!loading">
+  <p>Hola termino de cargar</p>
+</div>
+<img *ngIf="loading" src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700" alt="loading image">
+
+<button (click)="reload()">Mostrar Cargando</button>
