@@ -1,1 +1,13 @@
-<p>ng-for works!</p>
+<div *ngFor="let firstName of firstNames">
+  <p>Hi my name is: {{firstName}}</p>
+</div>
+
+<div>
+  <h2>My products</h2>
+  <div *ngFor="let product of products" class="product">
+    <p>The product name is: {{product.name}}</p>
+    <p>Stock product: {{product.stock}}</p>
+    <p>Creator product: {{product.creator}}</p>
+    <p>Date expirence: {{product.dueDate}}</p>
+  </div>
+</div>
