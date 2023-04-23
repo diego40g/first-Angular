@@ -1,1 +1,12 @@
-<p>ng-switch works!</p>
+<div class="tab" [ngSwitch]="tab">
+  <button (click)="changeTab('profile')">Profile</button>
+  <button (click)="changeTab('points')">Points</button>
+  <button (click)="changeTab('info')">Information</button>
+
+  <div class="tabContent">
+    <p *ngSwitchCase="'profile'">Profile: </p>
+    <p *ngSwitchCase="'points'">Points: </p>
+    <p *ngSwitchCase="'info'">Information: </p>
+    <p *ngSwitchDefault>Select a valit tab</p>
+  </div>
+</div>

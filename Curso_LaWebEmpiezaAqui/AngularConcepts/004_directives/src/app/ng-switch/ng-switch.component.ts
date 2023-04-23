@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./ng-switch.component.css']
 })
 export class NgSwitchComponent {
+  tab: string = '';
 
+  changeTab(tab: string){
+    this.tab=tab;
+  }
 }
