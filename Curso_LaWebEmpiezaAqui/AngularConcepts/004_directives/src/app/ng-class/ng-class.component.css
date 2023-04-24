@@ -1,0 +1,12 @@
+.squart
+{
+  width: 200px;
+  height: 200px;
+  background-color: lightgreen;
+}
+.important-text{
+  color: blue;
+}
+.big-text{
+  font-size: 3rem;
+}

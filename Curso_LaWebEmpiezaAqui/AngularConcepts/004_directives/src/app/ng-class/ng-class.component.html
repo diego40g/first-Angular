@@ -1,1 +1,16 @@
-<p>ng-class works!</p>
+<button (click)="changeBackground()">Mostrar ng class</button>
+
+<div [ngClass]="{ 'squart': showSquart }">
+  <p>Este deberia de aparecer un color verde de fondo</p>
+</div>
+
+<div>
+  <h2>My products Class</h2>
+  <div *ngFor="let product of products">
+    <p [ngClass]="{'important-text': product.isImportant, 'big-text': product.isBigText}">The product name is: {{product.name}}</p>
+    <p [ngClass]="{'important-text': product.isImportant}">Stock product: {{product.stock}}</p>
+    <p [ngClass]="{'important-text': product.isImportant}">Creator product: {{product.creator}}</p>
+    <p [class.important-text]="product.isImportant"
+        [class.big-text]="product.isBigText">Date expirence: {{product.dueDate}}</p>
+  </div>
+</div>
