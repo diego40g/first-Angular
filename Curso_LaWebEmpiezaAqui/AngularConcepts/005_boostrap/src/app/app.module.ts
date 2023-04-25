@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { BoostrapExampleComponent } from './boostrap-example/boostrap-example.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BoostrapExampleComponent
   ],
   imports: [
     BrowserModule
