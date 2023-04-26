@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 class Student{
   public firstName: string;
   public lastName: string;
+  public excellence: boolean;
 
   constructor(){
     this.firstName='';
     this.lastName='';
+    this.excellence=false;
   }
-
-
 }
 
 @Component({
@@ -18,17 +18,17 @@ class Student{
   styleUrls: ['./boostrap-form.component.css']
 })
 export class BoostrapFormComponent {
-  alumno: Student = new Student();
+  student: Student = new Student();
   studentsList: Array<Student> = new Array<Student>();
 
   addingStudent(){
     this.studentsList.push({
-      firstName: this.alumno.firstName,
-      lastName: this.alumno.lastName
+      firstName: this.student.firstName,
+      lastName: this.student.lastName,
+      excellence: this.student.excellence
     })
-    this.alumno.firstName='';
-    this.alumno.lastName='';
-
-    console.log(this.studentsList);
+    this.student.firstName='';
+    this.student.lastName='';
+    this.student.excellence=false;
   }
 }

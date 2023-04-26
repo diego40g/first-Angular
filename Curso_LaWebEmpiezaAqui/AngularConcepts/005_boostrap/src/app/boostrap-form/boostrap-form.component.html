@@ -2,18 +2,28 @@
   <form action="">
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="text" class="form-control" name="firstName" aria-describedby="firstName" placeholder="Enter your firstname" [(ngModel)]="alumno.firstName">
+      <input type="text" class="form-control" name="firstName" aria-describedby="firstName" placeholder="Enter your firstname" [(ngModel)]="student.firstName">
     </div>
     <div class="form-group">
       <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" name="lastName" placeholder="Enter your lastname" [(ngModel)]="alumno.lastName">
+      <input type="text" class="form-control" name="lastName" placeholder="Enter your lastname" [(ngModel)]="student.lastName">
+    </div>
+    <div class="form-group">
+      <label for="excellence">Excellence</label>
+      <select class="form-control" [(ngModel)]="student.excellence" name="excellence">
+        <option value=true>YES</option>
+        <option value=false>NO</option>
+      </select>
     </div>
     <button type="submit" (click)="addingStudent()" class="btn btn-primary">Submit</button>
   </form>
 
   <div class="card" *ngFor="let student of studentsList">
     <div class="card-body">
-      Student: {{student.firstName}} {{student.lastName}}
+      <span [ngClass]="{ 'excellence': student.excellence }">
+        alumno:
+      </span>
+      {{student.firstName}} {{student.lastName}}
     </div>
   </div>
 </div>
