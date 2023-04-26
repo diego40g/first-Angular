@@ -2,19 +2,18 @@
   <form action="">
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Enter your firstname" [(ngModel)]="alumno.firstName">
-      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      <input type="text" class="form-control" name="firstName" aria-describedby="firstName" placeholder="Enter your firstname" [(ngModel)]="alumno.firstName">
     </div>
     <div class="form-group">
       <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" id="lastName" placeholder="Enter your lastname" [(ngModel)]="alumno.lastName">
+      <input type="text" class="form-control" name="lastName" placeholder="Enter your lastname" [(ngModel)]="alumno.lastName">
     </div>
-    <button (click)="addingStudent()" class="btn btn-primary">Submit</button>
+    <button type="submit" (click)="addingStudent()" class="btn btn-primary">Submit</button>
   </form>
 
   <div class="card" *ngFor="let student of studentsList">
     <div class="card-body">
-        Student: {{student.firstName}} {{student.lastName}}
+      Student: {{student.firstName}} {{student.lastName}}
     </div>
   </div>
 </div>
