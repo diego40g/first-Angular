@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./lower-case-text.component.css']
 })
 export class LowerCaseTextComponent {
-
+  title: string = "Hi it's a title who use lower case"
 }
