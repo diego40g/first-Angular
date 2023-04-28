@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UpperCaseTextComponent } from './upper-case-text/upper-case-text.component';
 import { LowerCaseTextComponent } from './lower-case-text/lower-case-text.component';
+import { TitleCaseTextComponent } from './title-case-text/title-case-text.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UpperCaseTextComponent,
-    LowerCaseTextComponent
+    LowerCaseTextComponent,
+    TitleCaseTextComponent
   ],
   imports: [
     BrowserModule
