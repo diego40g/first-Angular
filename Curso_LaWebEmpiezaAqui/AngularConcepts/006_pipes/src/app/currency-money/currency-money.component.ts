@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./currency-money.component.css']
 })
 export class CurrencyMoneyComponent {
-
+  money: number = 250.5;
 }
