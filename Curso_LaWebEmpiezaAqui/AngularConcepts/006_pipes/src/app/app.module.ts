@@ -7,6 +7,7 @@ import { LowerCaseTextComponent } from './lower-case-text/lower-case-text.compon
 import { TitleCaseTextComponent } from './title-case-text/title-case-text.component';
 import { CurrencyMoneyComponent } from './currency-money/currency-money.component';
 import { PercentValueComponent } from './percent-value/percent-value.component';
+import { DateValueComponent } from './date-value/date-value.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PercentValueComponent } from './percent-value/percent-value.component';
     LowerCaseTextComponent,
     TitleCaseTextComponent,
     CurrencyMoneyComponent,
-    PercentValueComponent
+    PercentValueComponent,
+    DateValueComponent
   ],
   imports: [
     BrowserModule
