@@ -9,6 +9,7 @@ import { CurrencyMoneyComponent } from './currency-money/currency-money.componen
 import { PercentValueComponent } from './percent-value/percent-value.component';
 import { DateValueComponent } from './date-value/date-value.component';
 import { OurOwnPipeComponent } from './our-own-pipe/our-own-pipe.component';
+import { TextContinuePipe } from './text-continue.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OurOwnPipeComponent } from './our-own-pipe/our-own-pipe.component';
     CurrencyMoneyComponent,
     PercentValueComponent,
     DateValueComponent,
-    OurOwnPipeComponent
+    OurOwnPipeComponent,
+    TextContinuePipe
   ],
   imports: [
     BrowserModule
