@@ -1,0 +1,36 @@
+<p>
+  <span>Lower case: </span>
+  {{title | titlecase}}
+</p>
+<label for="">
+  <span>Upper case: </span>
+  {{title | uppercase}}
+</label>
+<p>
+  <span>Lower case: </span>
+  {{title | lowercase}}
+</p>
+
+<p>{{ money | currency: 'Lps'}}</p>
+<p>{{ money | currency}}</p>
+
+<p>{{profits | percent}}</p>
+
+<p>Date= {{today | date}}</p>
+<p>short= {{today | date: 'short'}}</p>
+<p>medium= {{today | date: 'medium'}}</p>
+<p>long= {{today | date: 'long'}}</p>
+<p>full= {{today | date: 'full'}}</p>
+<p>shortDate= {{today | date: 'shortDate'}}</p>
+<p>longDate= {{today | date: 'longDate'}}</p>
+<p>fullDate= {{today | date: 'fullDate'}}</p>
+<p>shortTime= {{today | date: 'shortTime'}}</p>
+<p>mediumTime= {{today | date: 'mediumTime'}}</p>
+<p>longTime= {{today | date: 'longTime'}}</p>
+<p>fullTime= {{today | date: 'fullTime'}}</p>
+
+<div class="squart">
+  <p>
+    {{loremText | textContinue}}
+  </p>
+</div>
