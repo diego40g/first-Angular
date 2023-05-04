@@ -1,4 +1,16 @@
-<p>
-  <span>Lower case: </span>
-  {{title | titlecase}}
-</p>
+<label for="">Email
+  <input type="email" [(ngModel)]='email'>
+</label>
+<label for="">Password
+  <input type="password" [(ngModel)]='password'>
+</label>
+
+<button (dblclick)="login()">Send</button>
+
+<label for="">Event leave and enter
+  <img
+    src="https://1000logos.net/wp-content/uploads/2016/11/google-logo.jpg"
+    alt="google image"
+    (mouseenter)="minSize($event)"
+    (mouseleave)="maxSize($event)">
+</label>
