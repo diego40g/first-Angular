@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TitlesComponent } from './titles/titles.component';
-import { RouterModule } from '@angular/router';
+import { PipesComponent } from './pipes/pipes.component';
+import { TextContinuePipe } from './text-continue.pipe';
+import { FormsModule } from '@angular/forms';
+import { FormsBoostrapComponent } from './forms-boostrap/forms-boostrap.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TitlesComponent
+    TitlesComponent,
+    PipesComponent,
+    TextContinuePipe,
+    FormsBoostrapComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
