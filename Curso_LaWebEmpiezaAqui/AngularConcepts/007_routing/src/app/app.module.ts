@@ -9,6 +9,7 @@ import { TextContinuePipe } from './text-continue.pipe';
 import { FormsModule } from '@angular/forms';
 import { FormsBoostrapComponent } from './forms-boostrap/forms-boostrap.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HeaderNavComponent } from './header-nav/header-nav.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     PipesComponent,
     TextContinuePipe,
     FormsBoostrapComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderNavComponent
   ],
   imports: [
     BrowserModule,
