@@ -14,7 +14,6 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   ngOnInit(){
-    console.log(this.route.snapshot.params)
     this.nameArticle=this.route.snapshot.params['name'];
     this.price=this.route.snapshot.params['price'];
   }
