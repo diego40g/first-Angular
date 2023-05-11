@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { NavHeaderComponent } from './nav-header/nav-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
     ArticleDetailComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    NavHeaderComponent
   ],
   imports: [
     BrowserModule,
