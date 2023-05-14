@@ -6,7 +6,7 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 
 const routes: Routes = [
   {path: 'article', component: ArticleComponent},
-  {path: 'detailArticle/:article', component: ArticleDetailComponent},
+  {path: 'detailArticle', component: ArticleDetailComponent},
   {path: '**', component: ErrorPageComponent}
 ];
 
