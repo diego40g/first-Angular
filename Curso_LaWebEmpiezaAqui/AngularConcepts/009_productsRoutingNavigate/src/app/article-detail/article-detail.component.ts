@@ -8,12 +8,12 @@ import { Article } from '../models/articulo';
   styleUrls: ['./article-detail.component.sass']
 })
 export class ArticleDetailComponent {
-  article: Article | undefined;
+  article?: Article;
   constructor(private routeActive: ActivatedRoute){
 
   }
 
   ngOnInit(){
-    console.log(this.routeActive.snapshot.params['article']);
+    this.article=JSON.parse(this.routeActive.snapshot.params['article']);
   }
 }
