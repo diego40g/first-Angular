@@ -14,6 +14,7 @@ interface User{
 })
 export class AddingFormComponent implements OnInit {
   newForm!: FormGroup;
+  itsNew: boolean = true;
   users: Array<User> = new Array<User>;
 
   constructor(private formBuilder: FormBuilder){ }
