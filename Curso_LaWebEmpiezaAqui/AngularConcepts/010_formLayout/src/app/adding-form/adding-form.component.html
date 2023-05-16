@@ -50,3 +50,10 @@
 <p>
   {{newForm.value | json}}
 </p>
+
+
+<div *ngFor="let user of users">
+  <h4>{{user.firstName}}</h4>
+  <p>{{user.email}}</p>
+  <p>{{user.password}}</p>
+</div>
