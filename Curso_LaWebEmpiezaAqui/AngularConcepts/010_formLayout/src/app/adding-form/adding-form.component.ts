@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+interface User{
+  firstName: string,
+  email: string,
+  password: string
+}
+
 @Component({
   selector: 'app-adding-form',
   templateUrl: './adding-form.component.html',
@@ -8,6 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddingFormComponent implements OnInit {
   newForm!: FormGroup;
+  users: Array<User> = new Array<User>;
 
   constructor(private formBuilder: FormBuilder){ }
 
@@ -25,5 +32,10 @@ export class AddingFormComponent implements OnInit {
         Validators.required, Validators.minLength(8)
       ])]
     })
+  }
+
+  adding(){
+    this.users.push(this.newForm.value as User)
+    this.newForm.reset()
   }
 }
