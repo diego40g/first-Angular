@@ -53,9 +53,12 @@
 </p>
 
 
-<div *ngFor="let user of users; let position = index">
-  <h4>{{user.firstName}} | Posicion: {{position}}</h4>
-  <p>{{user.email}}</p>
-  <p>{{user.password}}</p>
-  <button (click)="edit(position)">Edit</button>
+<div class="container marginBorder">
+  <div *ngFor="let user of users; let position = index">
+    <h4>{{user.firstName}} | Posicion: {{position}}</h4>
+    <p>{{user.email}}</p>
+    <p>{{user.password}}</p>
+    <button (click)="edit(position)">Edit</button>
+    <button (click)="deleteUser(position)">Delete</button>
+  </div>
 </div>
