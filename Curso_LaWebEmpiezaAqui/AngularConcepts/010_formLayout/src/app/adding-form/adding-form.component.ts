@@ -59,4 +59,8 @@ export class AddingFormComponent implements OnInit {
     this.itsNew = !this.itsNew;
     this.editPosition = -1;
   }
+
+  deleteUser(position: number){
+    this.users.splice(position, 1)
+  }
 }
