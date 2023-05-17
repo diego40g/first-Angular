@@ -39,8 +39,8 @@
       </div>
     </div>
 
-    <button [disabled]="!newForm.valid" class="btn btn-primary" (click)="adding()">Adding</button>
-    <button [disabled]="!newForm.valid" class="btn btn-secondary" (click)="adding()">Editing</button>
+    <button *ngIf="itsNew" [disabled]="!newForm.valid" class="btn btn-primary" (click)="adding()">Adding</button>
+    <button *ngIf="!itsNew" [disabled]="!newForm.valid" class="btn btn-secondary" (click)="update()">Editing</button>
   </form>
 </div>
 
@@ -53,8 +53,9 @@
 </p>
 
 
-<div *ngFor="let user of users">
-  <h4>{{user.firstName}}</h4>
+<div *ngFor="let user of users; let position = index">
+  <h4>{{user.firstName}} | Posicion: {{position}}</h4>
   <p>{{user.email}}</p>
   <p>{{user.password}}</p>
+  <button (click)="edit(position)">Edit</button>
 </div>
