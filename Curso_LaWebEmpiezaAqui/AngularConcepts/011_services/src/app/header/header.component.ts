@@ -12,4 +12,8 @@ export class HeaderComponent {
   get getUserInyection(): UsersService {
     return this.UserInyection;
   }
+
+  changeName() {
+    this.UserInyection.usuario.firstname="Ismael"
+  }
 }
