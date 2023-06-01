@@ -7,10 +7,10 @@ import { UsersService } from '../service/users.service';
   styleUrls: ['./profile.component.sass']
 })
 export class ProfileComponent {
-  constructor(private InjectUser: UsersService){
+  constructor(public InjectUser: UsersService){
 
   }
   changeName(){
-    this.InjectUser.usuario.firstname="Diego"
+    this.InjectUser.usuario.firstname="Ignacio"
   }
 }
