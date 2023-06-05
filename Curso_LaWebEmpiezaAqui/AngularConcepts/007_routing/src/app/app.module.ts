@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { FormsBoostrapComponent } from './forms-boostrap/forms-boostrap.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
+import { UsersComponent } from './users/users.component';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { AddUserComponent } from './users/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { HeaderNavComponent } from './header-nav/header-nav.component';
     TextContinuePipe,
     FormsBoostrapComponent,
     NotFoundComponent,
-    HeaderNavComponent
+    HeaderNavComponent,
+    UsersComponent,
+    EditUserComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

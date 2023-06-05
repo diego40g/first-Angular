@@ -1,0 +1,64 @@
+<div class="container">
+  <form [formGroup]="newForm">
+    <div class="form-group">
+      <label>First Name:</label>
+      <input type="text" class="form-control" formControlName="firstName">
+      <div *ngIf="newForm.controls['firstName'].invalid && newForm.controls['firstName'].dirty" class="alert alert-danger" role="alert">
+        <span *ngIf="newForm.controls['firstName'].errors?.['required']">
+          It need a first name
+        </span>
+      </div>
+    </div>
+    <!-- {{newForm.controls['firstName'].invalid}} -->
+    <!--
+      Cuando comienzo a trabajar en el
+      {{newForm.controls['firstName'].dirty}}
+     -->
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" class="form-control" formControlName="email">
+      <div *ngIf="newForm.controls['email'].invalid && newForm.controls['email'].dirty">
+        <div *ngIf="newForm.controls['email'].errors?.['required']" class="alert alert-danger" role="alert">
+          It need an email
+        </div>
+        <div *ngIf="newForm.controls['email'].errors?.['email']" class="alert alert-danger" role="alert">
+          The email isn't valid
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Password:</label>
+      <input type="password" class="form-control" formControlName="password">
+      <div *ngIf="newForm.controls['password'].invalid && newForm.controls['password'].dirty">
+        <div *ngIf="newForm.controls['password'].errors?.['required']" class="alert alert-danger" role="alert">
+          It need a password
+        </div>
+        <div *ngIf="newForm.controls['password'].errors?.['minlength']" class="alert alert-danger" role="alert">
+          The password need min 8 characters
+        </div>
+      </div>
+    </div>
+
+    <button *ngIf="itsNew" [disabled]="!newForm.valid" class="btn btn-primary" (click)="adding()">Adding</button>
+    <button *ngIf="!itsNew" [disabled]="!newForm.valid" class="btn btn-secondary" (click)="update()">Editing</button>
+  </form>
+</div>
+
+<p>
+  Es valido: {{newForm.valid}}
+</p>
+
+<p>
+  {{newForm.value | json}}
+</p>
+
+
+<div class="container marginBorder">
+  <div *ngFor="let user of users; let position = index">
+    <h4>{{user.firstName}} | Posicion: {{position}}</h4>
+    <p>{{user.email}}</p>
+    <p>{{user.password}}</p>
+    <button (click)="edit(position)">Edit</button>
+    <button (click)="deleteUser(position)">Delete</button>
+  </div>
+</div>
