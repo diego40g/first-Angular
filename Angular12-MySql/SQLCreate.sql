@@ -19,3 +19,5 @@ create table Employee(
     PhotoFileName nvarchar(500),
     Primary key (EmployeeID)
 );
+insert into Employee(EmployeeName, Department, DateOfJoining, PhotoFileName)
+VALUES('Diego','TI','2021-06-21','anonymous.png')
