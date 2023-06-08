@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Angular\\first-Angular\\Angular12-NET\\BackEndNET\\BackEndNET.csproj": {}
+    "\\\\wsl.localhost\\Ubuntu\\root\\first-Angular\\Angular12-NET\\BackEndNET\\BackEndNET.csproj": {}
   },
   "projects": {
-    "E:\\Angular\\first-Angular\\Angular12-NET\\BackEndNET\\BackEndNET.csproj": {
+    "\\\\wsl.localhost\\Ubuntu\\root\\first-Angular\\Angular12-NET\\BackEndNET\\BackEndNET.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Angular\\first-Angular\\Angular12-NET\\BackEndNET\\BackEndNET.csproj",
+        "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\root\\first-Angular\\Angular12-NET\\BackEndNET\\BackEndNET.csproj",
         "projectName": "BackEndNET",
-        "projectPath": "E:\\Angular\\first-Angular\\Angular12-NET\\BackEndNET\\BackEndNET.csproj",
-        "packagesPath": "C:\\Users\\user-pc\\.nuget\\packages\\",
-        "outputPath": "E:\\Angular\\first-Angular\\Angular12-NET\\BackEndNET\\obj\\",
+        "projectPath": "\\\\wsl.localhost\\Ubuntu\\root\\first-Angular\\Angular12-NET\\BackEndNET\\BackEndNET.csproj",
+        "packagesPath": "C:\\Users\\PC_Desarrollo\\.nuget\\packages\\",
+        "outputPath": "\\\\wsl.localhost\\Ubuntu\\root\\first-Angular\\Angular12-NET\\BackEndNET\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC_Desarrollo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,9 +40,31 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             }
           },
           "imports": [
@@ -65,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
