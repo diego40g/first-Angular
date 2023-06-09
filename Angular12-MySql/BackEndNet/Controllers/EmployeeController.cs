@@ -11,6 +11,7 @@ namespace BackEndNet.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _env;
         public EmployeeController(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -131,6 +132,32 @@ namespace BackEndNet.Controllers
             }
 
             return new JsonResult("Delete successfully");
+        }
+
+        [Route("SaveFile")]
+        [HttpPost]
+        public JsonResult SaveFile()
+        {
+            try
+            {
+
+                var httpReuest = Request.Form;
+                var postedFile = httpReuest.Files[0];
+                string filename = postedFile.FileName;
+                var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                }
+
+                return new JsonResult(filename);
+            }
+            catch (Exception)
+            {
+
+                return new JsonResult("anonymous.png");
+            }
         }
     }
 }
