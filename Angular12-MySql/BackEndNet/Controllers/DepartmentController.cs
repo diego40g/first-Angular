@@ -21,10 +21,10 @@ namespace BackEndNet.Controllers
         {
             string query = @"
                             select DepartmentId, DepartmentName from
-                            dbo.Department
+                            Department
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("AppCon");
             MySqlDataReader myReader;
             using (MySqlConnection myConn = new MySqlConnection(sqlDataSource))
             {
@@ -45,11 +45,11 @@ namespace BackEndNet.Controllers
         public JsonResult Post(Department dep)
         {
             string query = @"
-                            insert into dbo.Department
+                            insert into Department(DepartmentName)
                             values (@DepartmentName)
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("AppCon");
             MySqlDataReader myReader;
             using (MySqlConnection myConn = new MySqlConnection(sqlDataSource))
             {
@@ -71,12 +71,12 @@ namespace BackEndNet.Controllers
         public JsonResult Put(Department dep)
         {
             string query = @"
-                            update dbo.Department
+                            update Department
                             set DepartmentName = @DepartmentName
                             where DepartmentId = @DepartmentId
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("AppCon");
             MySqlDataReader myReader;
             using (MySqlConnection myConn = new MySqlConnection(sqlDataSource))
             {
@@ -99,11 +99,11 @@ namespace BackEndNet.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                            delete from dbo.Department
+                            delete from Department
                             where DepartmentId = @DepartmentId
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("AppCon");
             MySqlDataReader myReader;
             using (MySqlConnection myConn = new MySqlConnection(sqlDataSource))
             {

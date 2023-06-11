@@ -12,22 +12,22 @@ namespace BackEndNet.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
-        public EmployeeController(IConfiguration configuration)
+        public EmployeeController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
+            _env = env;
         }
 
         [HttpGet]
         public JsonResult Get()
         {
             string query = @"
-                            select EmployeeId, EmployeeName, Department,
-                            convert(varchar(10),DateOfJoining,120) as DateOfJoining, PhotoFileName
-                            from
-                            dbo.Employee
+                            SELECT EmployeeId, EmployeeName, Department,
+                            DATE_FORMAT(DateOfJoining, '%Y-%m-%d') AS DateOfJoining , PhotoFileName
+                            FROM Employee
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("AppCon");
             MySqlDataReader myReader;
             using (MySqlConnection myConn = new MySqlConnection(sqlDataSource))
             {
@@ -48,12 +48,12 @@ namespace BackEndNet.Controllers
         public JsonResult Post(Employee emp)
         {
             string query = @"
-                            insert into dbo.Employee
+                            insert into Employee
                             (EmployeeName,Department,DateOfJoining,PhotoFileName)
                      values (@EmployeeName,@Department,@DateOfJoining,@PhotoFileName)
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("AppCon");
             MySqlDataReader myReader;
             using (MySqlConnection myConn = new MySqlConnection(sqlDataSource))
             {
@@ -78,7 +78,7 @@ namespace BackEndNet.Controllers
         public JsonResult Put(Employee emp)
         {
             string query = @"
-                            update dbo.Employee
+                            update Employee
                             set EmployeeName = @EmployeeName,
                                 Department = @Department,
                                 DateOfJoining = @DateOfJoining,
@@ -86,7 +86,7 @@ namespace BackEndNet.Controllers
                             where EmployeeId = @EmployeeId
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("AppCon");
             MySqlDataReader myReader;
             using (MySqlConnection myConn = new MySqlConnection(sqlDataSource))
             {
@@ -112,11 +112,11 @@ namespace BackEndNet.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                            delete from dbo.Employee
+                            delete from Employee
                             where EmployeeId = @EmployeeId
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("AppCon");
             MySqlDataReader myReader;
             using (MySqlConnection myConn = new MySqlConnection(sqlDataSource))
             {
