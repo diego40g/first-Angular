@@ -1,6 +1,6 @@
-create database mytestdb;
+create database angularMySql;
 
-use mytestdb;
+use angularMySql;
 
 create table Department(
     DepartmentId int AUTO_INCREMENT,
