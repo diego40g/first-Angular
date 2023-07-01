@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="article" *ngFor="let article of articles">
+    <h4 (click)="getArticleDetail(article)">
+      {{ article.id }}.- {{ article.title }}
+    </h4>
+    <p>{{ article.body }}</p>
+    <p>Id: {{ article.id }} UserId:{{ article.userId }}</p>
+    <button class="btn btn-danger" (click)="deleteArticleDetail(article.id)">
+      Borrar
+    </button>
+  </div>
+</div>
