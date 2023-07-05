@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>{{ title }}</h2>
+  <form [formGroup]="formArticles">
+    <div class="from-group">
+      <label for="">Title</label>
+      <input type="text" class="form-control" formControlName="title" />
+    </div>
+    <div class="from-group">
+      <label for="">Body</label>
+      <input type="text" class="form-control" formControlName="body" />
+    </div>
+    <div class="from-group">
+      <label for="">Select user</label>
+      <select class="form-control" name="" formControlName="userId">
+        <option *ngFor="let user of users" [value]="user.id">
+          {{ user.name }}
+        </option>
+      </select>
+    </div>
+    <br />
+    <button
+      *ngIf="isNew"
+      class="btn btn-primary"
+      [disabled]="!formArticles.valid"
+      (click)="addForm()"
+    >
+      Add
+    </button>
+    <button
+      *ngIf="!isNew"
+      class="btn btn-success"
+      [disabled]="!formArticles.valid"
+      (click)="updateForm()"
+    >
+      Update
+    </button>
+  </form>
+</div>
