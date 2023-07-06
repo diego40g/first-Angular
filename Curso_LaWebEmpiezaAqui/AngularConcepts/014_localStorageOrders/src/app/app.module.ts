@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ClientComponent } from './client/client.component';
-import { ProductComponent } from './product/product.component';
-import { OrderComponent } from './order/order.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { ClientComponent } from './component/client/client.component';
+import { ProductComponent } from './component/product/product.component';
+import { OrderComponent } from './component/order/order.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +14,10 @@ import { OrderComponent } from './order/order.component';
     NavbarComponent,
     ClientComponent,
     ProductComponent,
-    OrderComponent
+    OrderComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
