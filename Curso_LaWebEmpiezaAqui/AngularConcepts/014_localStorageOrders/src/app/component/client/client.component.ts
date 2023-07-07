@@ -31,4 +31,8 @@ export class ClientComponent {
   saveClient() {
     localStorage.setItem('clients', JSON.stringify(this.clients));
   }
+
+  readClient() {
+    this.clients = JSON.parse(localStorage.getItem('clients')!);
+  }
 }
