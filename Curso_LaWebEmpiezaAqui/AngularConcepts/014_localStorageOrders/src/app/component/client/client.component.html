@@ -1,1 +1,10 @@
-<button class="btn btn-primary" (click)="saveClient()">Save client</button>
+<button class="btn btn-secondary" (click)="saveClient()">Save client</button>
+<button class="btn btn-success" (click)="readClient()">Get client</button>
+
+<div class="container">
+  <div *ngFor="let client of clients">
+    <p><b>Firstname: </b>{{ client.firstname }}</p>
+    <p><b>Lastname: </b>{{ client.lastname }}</p>
+    <p><b>Age: </b>{{ client.age }}</p>
+  </div>
+</div>
