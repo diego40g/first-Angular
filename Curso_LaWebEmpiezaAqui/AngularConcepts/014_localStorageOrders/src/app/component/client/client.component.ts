@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+interface Client {
+  firstname: string;
+  lastname: string;
+  age: number;
+}
 
 @Component({
   selector: 'app-client',
@@ -6,7 +11,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./client.component.sass'],
 })
 export class ClientComponent {
+  clients: Array<Client> = new Array<Client>();
   saveClient() {
-    localStorage.setItem('name', 'Diego');
+    localStorage.setItem('firstname', 'Diego');
+    localStorage.setItem('lastname', 'Paz');
   }
 }
