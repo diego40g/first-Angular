@@ -12,8 +12,23 @@ interface Client {
 })
 export class ClientComponent {
   clients: Array<Client> = new Array<Client>();
+
+  ngOnInit() {
+    this.clients.push(
+      {
+        firstname: 'Diego',
+        lastname: 'Paz',
+        age: 25,
+      },
+      {
+        firstname: 'Ignacio',
+        lastname: 'Naula',
+        age: 27,
+      }
+    );
+  }
+
   saveClient() {
-    localStorage.setItem('firstname', 'Diego');
-    localStorage.setItem('lastname', 'Paz');
+    localStorage.setItem('clients', JSON.stringify(this.clients));
   }
 }
