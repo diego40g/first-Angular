@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="login-container">
+  <section>
+    <form action="" class="login-form">
+      <div class="login-control-input">
+        <input type="email" placeholder="E-mail" aria-label="Email" />
+      </div>
+      <div class="login-control-input">
+        <input type="password" placeholder="Password" aria-label="Password" />
+      </div>
+      <br />
+      <div *ngIf="loginError">
+        <p class="login-error"></p>
+      </div>
+      <div>
+        <button type="submit" color="primary">Login</button>
+      </div>
+    </form>
+  </section>
+</div>
