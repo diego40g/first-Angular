@@ -1,19 +1,37 @@
-<div class="login-container">
-  <section>
-    <form action="" class="login-form">
-      <div class="login-control-input">
-        <input type="email" placeholder="E-mail" aria-label="Email" />
-      </div>
-      <div class="login-control-input">
-        <input type="password" placeholder="Password" aria-label="Password" />
-      </div>
-      <br />
-      <div *ngIf="loginError">
-        <p class="login-error"></p>
-      </div>
-      <div>
-        <button type="submit" color="primary">Login</button>
-      </div>
-    </form>
-  </section>
-</div>
+<section class="login-container">
+  <mat-card class="login-card">
+    <mat-card-content>
+      <form action="" class="login-form">
+        <div class="login-control-input">
+          <mat-icon>email</mat-icon>
+          <mat-form-field class="login-form-field">
+            <input
+              matInput
+              type="email"
+              placeholder="E-mail"
+              aria-label="Email"
+            />
+          </mat-form-field>
+        </div>
+        <div class="login-control-input">
+          <mat-icon>vpn_key</mat-icon>
+          <mat-form-field class="login-form-field">
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
+              aria-label="Password"
+            />
+          </mat-form-field>
+        </div>
+        <br />
+        <div *ngIf="loginError">
+          <p class="login-error"></p>
+        </div>
+        <div>
+          <button mat-raised-button type="submit" color="primary">Login</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
