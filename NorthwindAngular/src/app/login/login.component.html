@@ -1,7 +1,12 @@
 <section class="login-container">
   <mat-card class="login-card">
     <mat-card-content>
-      <form action="" class="login-form">
+      <form
+        action=""
+        class="login-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="login(loginForm)"
+      >
         <div class="login-control-input">
           <mat-icon>email</mat-icon>
           <mat-form-field class="login-form-field">
@@ -10,7 +15,14 @@
               type="email"
               placeholder="E-mail"
               aria-label="Email"
+              formControlName="email"
             />
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')"
+              >E-mail is required</mat-error
+            >
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')"
+              >E-mail is not valid</mat-error
+            >
           </mat-form-field>
         </div>
         <div class="login-control-input">
@@ -21,15 +33,32 @@
               type="password"
               placeholder="Password"
               aria-label="Password"
+              formControlName="password"
             />
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')"
+              >Password is required</mat-error
+            >
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')"
+              >Password is at least 2 characters long</mat-error
+            >
+            <mat-error *ngIf="loginForm.get('password')?.hasError('maxlength')"
+              >Password is can not be longer that 50 characters</mat-error
+            >
           </mat-form-field>
         </div>
         <br />
         <div *ngIf="loginError">
-          <p class="login-error"></p>
+          <p class="login-error">{{ loginError }}</p>
         </div>
         <div>
-          <button mat-raised-button type="submit" color="primary">Login</button>
+          <button
+            mat-raised-button
+            type="submit"
+            color="primary"
+            [disabled]="loginForm.invalid"
+          >
+            Login
+          </button>
         </div>
       </form>
     </mat-card-content>
