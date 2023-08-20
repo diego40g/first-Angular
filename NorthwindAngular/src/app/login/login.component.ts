@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,11 @@ export class LoginComponent {
   loginError = '';
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.buildLoginForm();
@@ -30,5 +36,14 @@ export class LoginComponent {
     });
   }
 
-  login(submittedForm: FormGroup) {}
+  login(submittedForm: FormGroup) {
+    this.authService
+      .login(submittedForm.value.email, submittedForm.value.password)
+      .subscribe(
+        (authResponse) => {
+          this.router.navigate(['/home']);
+        },
+        (error) => (this.loginError = error)
+      );
+  }
 }
