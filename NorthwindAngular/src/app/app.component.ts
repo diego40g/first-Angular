@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'NorthwindAngular';
   _displayLogin = false;
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.authService.authStatus.subscribe((authStatus) => {
+      const jwt = this.authService.getToken();
+      setTimeout(() => ((this._displayLogin = !(jwt == null || jwt == '')), 0));
+    });
+  }
 
   get displayMenu() {
     return this._displayLogin;
