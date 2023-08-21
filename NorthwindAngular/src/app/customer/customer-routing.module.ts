@@ -5,22 +5,19 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 
 const customerRoutes: Routes = [
   {
-    path: '',
+    path: 'customer',
     children: [
       {
-        path:'',
-        component: CustomerListComponent
-      }
-    ]
-  }
-]
+        path: '',
+        component: CustomerListComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(customerRoutes)
-  ],
-  exports: [RouterModule]
+  imports: [CommonModule, RouterModule.forChild(customerRoutes)],
+  exports: [RouterModule],
 })
-export class CustomerRoutingModule { }
+export class CustomerRoutingModule {}

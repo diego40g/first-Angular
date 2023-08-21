@@ -5,22 +5,19 @@ import { HomeComponent } from './home/home.component';
 
 const homeRoutes: Routes = [
   {
-    path: '',
+    path: 'home',
     children: [
       {
         path: '',
-        component: HomeComponent
-      }
-    ]
-  }
-]
+        component: HomeComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(homeRoutes)
-  ],
-  exports: [RouterModule]
+  imports: [CommonModule, RouterModule.forChild(homeRoutes)],
+  exports: [RouterModule],
 })
-export class HomeRoutingModule { }
+export class HomeRoutingModule {}
