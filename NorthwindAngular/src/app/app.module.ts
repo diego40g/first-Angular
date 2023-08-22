@@ -16,8 +16,11 @@ import { MatInputModule } from '@angular/material/input';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
+import { CacheService } from './auth/cache.service';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth/auth.guard';
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, LogoutComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -33,7 +36,7 @@ import { AuthService } from './auth/auth.service';
     MatFormFieldModule,
     MatInputModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
