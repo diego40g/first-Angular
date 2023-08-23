@@ -3,16 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((h) => h.HomeModule),
+    canLoad: [AuthGuard],
   },
   {
     path: 'customer',
     loadChildren: () =>
       import('./customer/customer.module').then((c) => c.CustomerModule),
+    canLoad: [AuthGuard],
+  },
+  {
+    path: '123',
+    component: NotFoundComponent,
+    canLoad: [AuthGuard],
   },
   {
     path: 'login',
