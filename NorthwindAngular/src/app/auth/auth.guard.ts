@@ -16,7 +16,13 @@ import { AuthService, IAuthStatus } from './auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(private authService: AuthService, private route: Router) {}
+  protected currentAuthStatus!: IAuthStatus;
+  constructor(private authService: AuthService, private router: Router) {
+    this.authService.authStatus.subscribe(
+      (authStatus) =>
+        (this.currentAuthStatus = this.authService.getAuthStatus())
+    );
+  }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -25,7 +31,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    throw new Error('Method not implemented.');
+    return this.checkPermissions(childRoute);
   }
   canLoad(route: Route): boolean | Observable<boolean> | Promise<boolean> {
     return this.checkLogin();
@@ -34,16 +40,33 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return true;
+    return this.checkPermissions(next);
   }
 
   protected checkLogin(): boolean {
     if (
-      this.authService.getToken() == null ||
+      this.authService.getToken() === null ||
       this.authService.getToken() === ''
     ) {
+      console.log('You must login to continue');
       alert('You must login to continue');
-      this.route.createUrlTree(['login']);
+      this.router.navigate(['login']);
+      return false;
+    }
+    return true;
+  }
+  protected checkPermissions(route?: ActivatedRouteSnapshot) {
+    let roleMatch = true;
+
+    if (route) {
+      const expectedRole = route.data['expectedRole'];
+      if (expectedRole) {
+        roleMatch = this.currentAuthStatus.role === expectedRole;
+      }
+    }
+    if (!roleMatch) {
+      alert('you do not have the permissions to view this resource');
+      this.router.navigate(['home']);
       return false;
     }
     return true;
