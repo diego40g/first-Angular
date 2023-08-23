@@ -73,12 +73,16 @@ export class AuthService extends CacheService {
     this.setItem('jwt', jwt);
   }
 
-  getToken(): string {
-    return this.getItem('jwt') || '';
+  getToken(): string | null {
+    return this.getItem('jwt') || '' || null;
   }
 
   private clearToken() {
     this.removeItem('jwt');
+  }
+
+  getAuthStatus(): IAuthStatus {
+    return this.getItem('authStatus')!;
   }
 }
 
