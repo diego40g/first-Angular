@@ -18,11 +18,6 @@ const routes: Routes = [
     canLoad: [AuthGuard],
   },
   {
-    path: '123',
-    component: NotFoundComponent,
-    canLoad: [AuthGuard],
-  },
-  {
     path: 'login',
     component: LoginComponent,
   },
