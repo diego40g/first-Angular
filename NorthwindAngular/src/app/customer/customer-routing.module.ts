@@ -8,6 +8,7 @@ import { Role } from '../auth/role';
 const customerRoutes: Routes = [
   {
     path: '',
+    title: 'Customer',
     children: [
       {
         path: '',
