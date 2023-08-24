@@ -7,8 +7,7 @@ import { Role } from '../auth/role';
 
 const customerRoutes: Routes = [
   {
-    path: 'customer',
-    canLoad: [AuthGuard],
+    path: '',
     children: [
       {
         path: '',
