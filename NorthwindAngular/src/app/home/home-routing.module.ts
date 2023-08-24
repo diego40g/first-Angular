@@ -6,20 +6,20 @@ import { AuthGuard } from '../auth/auth.guard';
 
 const homeRoutes: Routes = [
   {
-    path: 'home',
-    canLoad: [AuthGuard],
-    children: [
+    path: '',
+    component: HomeComponent,
+    /*children: [
       {
         path: '',
         component: HomeComponent,
       },
-    ],
+    ],*/
   },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forChild(homeRoutes)],
+  imports: [RouterModule.forChild(homeRoutes)],
   exports: [RouterModule],
 })
 export class HomeRoutingModule {}
