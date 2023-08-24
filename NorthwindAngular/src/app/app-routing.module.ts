@@ -9,11 +9,13 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((h) => h.HomeModule),
+    canLoad: [AuthGuard],
   },
   {
     path: 'customer',
     loadChildren: () =>
       import('./customer/customer.module').then((c) => c.CustomerModule),
+    canLoad: [AuthGuard],
   },
   {
     path: 'login',
