@@ -10,6 +10,7 @@ import { Customer } from '../models/customer';
 })
 export class CustomerListComponent {
   customers: Customer[] = [];
+  numberOfRecords: Number = 0;
   constructor(private customerServie: CustomerService) {
     this.getCustomer(1, 20);
   }
@@ -17,6 +18,11 @@ export class CustomerListComponent {
   getCustomer(page: number, rows: number): void {
     this.customerServie
       .getCustomerList(page, rows)
-      .subscribe((response) => (this.customers = response));
+      .subscribe(
+        (response) => (
+          (this.customers = response),
+          (this.numberOfRecords = response[0].totalRecords)
+        )
+      );
   }
 }
