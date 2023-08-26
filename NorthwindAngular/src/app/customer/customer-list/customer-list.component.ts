@@ -10,9 +10,13 @@ import { Customer } from '../models/customer';
 })
 export class CustomerListComponent {
   customers: Customer[] = [];
-  numberOfRecords: Number = 0;
+  numberOfRecords: number = 0;
+  pageSizeOptions: number[] = [12, 24, 48];
+  pageSize: number = 10;
+  pageIndex: number = 0;
+
   constructor(private customerServie: CustomerService) {
-    this.getCustomer(1, 20);
+    this.getCustomer(1, this.pageSize);
   }
 
   getCustomer(page: number, rows: number): void {
@@ -24,5 +28,8 @@ export class CustomerListComponent {
           (this.numberOfRecords = response[0].totalRecords)
         )
       );
+  }
+  changePage(event: any): void {
+    this.getCustomer(event.pageIndex + 1, event.pageSize);
   }
 }
