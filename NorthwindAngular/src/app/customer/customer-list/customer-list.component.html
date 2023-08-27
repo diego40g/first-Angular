@@ -1,4 +1,7 @@
 <div class="customer-container">
+  <div class="new-customer">
+    <button mat-raised-button color="primary" (click)="newCustomer()">New Customer</button>
+  </div>
   <div>
     <div class="customer-card" *ngFor="let item of customers">
       <mat-card>
