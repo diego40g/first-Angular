@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { CustomerService } from './customer.service';
 import { Customer } from '../models/customer';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { NewCustomerComponent } from '../new-customer/new-customer.component';
 @Component({
   selector: 'app-customer-list',
@@ -16,7 +20,10 @@ export class CustomerListComponent {
   pageSize: number = 10;
   pageIndex: number = 0;
 
-  constructor(private customerServie: CustomerService, public dialog: MatDialog) {
+  constructor(
+    private customerServie: CustomerService,
+    public dialog: MatDialog
+  ) {
     this.getCustomer(1, this.pageSize);
   }
 
@@ -33,13 +40,13 @@ export class CustomerListComponent {
   changePage(event: any): void {
     this.getCustomer(event.pageIndex + 1, event.pageSize);
   }
-  newCustomer(): void{
+  newCustomer(): void {
     const dialogRef = this.dialog.open(NewCustomerComponent, {
-      width: '250px'
+      panelClass: 'new-customer-modal-dialog',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed')
-    })
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
   }
 }
