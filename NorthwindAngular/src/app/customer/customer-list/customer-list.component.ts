@@ -46,7 +46,7 @@ export class CustomerListComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      this.getCustomer(1, 10);
     });
   }
 }
