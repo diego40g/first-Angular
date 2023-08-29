@@ -23,6 +23,10 @@
             <mat-error *ngIf="loginForm.get('email')?.hasError('email')"
               >E-mail is not valid</mat-error
             >
+            <mat-error
+              *ngIf="loginForm.get('email')?.hasError('cannotContainSpace')"
+              >E-mail cannot contain space</mat-error
+            >
           </mat-form-field>
         </div>
         <div class="login-control-input">
@@ -43,6 +47,10 @@
             >
             <mat-error *ngIf="loginForm.get('password')?.hasError('maxlength')"
               >Password is can not be longer that 50 characters</mat-error
+            >
+            <mat-error
+              *ngIf="loginForm.get('password')?.hasError('cannotContainSpace')"
+              >Password cannot contain space</mat-error
             >
           </mat-form-field>
         </div>
