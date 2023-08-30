@@ -1,6 +1,8 @@
 <div class="customer-container">
   <div class="new-customer">
-    <button mat-raised-button color="primary" (click)="newCustomer()">New Customer</button>
+    <button mat-raised-button color="primary" (click)="newCustomer()">
+      New Customer
+    </button>
   </div>
   <div>
     <div class="customer-card" *ngFor="let item of customers">
@@ -14,8 +16,20 @@
           <p>{{ item.country }}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>Editar</button>
-          <button mat-button>Eliminar</button>
+          <button
+            mat-button
+            class="btn btn-light"
+            (click)="editCustomer(item.id)"
+          >
+            Editar
+          </button>
+          <button
+            mat-button
+            class="btn btn-secondary"
+            (click)="viewDetails(item.id)"
+          >
+            Eliminar
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
