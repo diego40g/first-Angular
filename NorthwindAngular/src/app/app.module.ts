@@ -8,17 +8,12 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthHttpInterceptor } from './auth/auth-http-interceptor';
+import { MaterialModule } from './material.module';
 @NgModule({
   declarations: [AppComponent, LoginComponent, LogoutComponent],
   imports: [
@@ -30,11 +25,7 @@ import { AuthHttpInterceptor } from './auth/auth-http-interceptor';
     ReactiveFormsModule,
     HttpClientModule,
 
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
+    MaterialModule,
   ],
   providers: [
     AuthService,
