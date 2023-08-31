@@ -8,6 +8,7 @@ import {
 } from '@angular/material/dialog';
 import { NewCustomerComponent } from '../new-customer/new-customer.component';
 import { EditCustomerComponent } from '../edit-customer/edit-customer.component';
+import { DetailCustomerComponent } from '../detail-customer/detail-customer.component';
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
@@ -60,5 +61,14 @@ export class CustomerListComponent {
       this.getCustomer(1, 10);
     });
   }
-  viewDetails(id: number): void {}
+  viewDetails(id: number): void {
+    const dialogRef = this.dialog.open(DetailCustomerComponent, {
+      panelClass: 'new-customer-modal-dialog',
+      data: { id: id },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getCustomer(1, 10);
+    });
+  }
 }
