@@ -18,6 +18,12 @@ const routes: Routes = [
     canLoad: [AuthGuard],
   },
   {
+    path: 'order',
+    loadChildren: () =>
+      import('./order/order.module').then((o) => o.OrderModule),
+    canLoad: [AuthGuard],
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
