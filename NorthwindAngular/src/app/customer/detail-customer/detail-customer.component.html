@@ -1,0 +1,28 @@
+<div class="new-customer-container">
+  <h3>Details</h3>
+  <mat-dialog-content>
+    <div class="element-form">
+      <label class="label-descriptio">Firstname: </label>
+      &nbsp;
+      <label>{{ customer.firstName }}</label>
+    </div>
+    <div class="element-form">
+      <label class="label-descriptio">Lastname: </label>
+      &nbsp;
+      <label>{{ customer.lastName }}</label>
+    </div>
+    <div class="element-form">
+      <label class="label-descriptio">Country: </label>
+      &nbsp;
+      <label>{{ customer.country }}</label>
+    </div>
+    <div class="element-form">
+      <label class="label-descriptio">City: </label>
+      &nbsp;
+      <label>{{ customer.city }}</label>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>
