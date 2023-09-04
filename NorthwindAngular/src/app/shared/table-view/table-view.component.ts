@@ -14,7 +14,7 @@ export interface Column {
   templateUrl: './table-view.component.html',
   styleUrls: ['./table-view.component.sass'],
 })
-export class TableViewComponent {
+export class TableViewComponent<T> {
   @Input() minTableHeight: number = 500;
   @Input() items: object[] = [];
   @Input() columns: Column[] = [];
@@ -26,4 +26,6 @@ export class TableViewComponent {
   toggleExpandRow(row: number) {
     this.table.rowDetail.toggleExpandRow(row);
   }
+
+  constructor() {}
 }
