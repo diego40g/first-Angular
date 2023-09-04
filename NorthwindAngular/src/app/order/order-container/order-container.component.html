@@ -1,11 +1,17 @@
-<app-table-view
-  class="order-container"
-  #tableView
-  [items]="items"
-  [columns]="columns"
-  [detailTemplate]="detailTemplateC"
-></app-table-view>
-<ng-template #orderIdCellTemplate let-row="row" let-expanded="expanded" ngx-datatable-cell-template></ng-template>
-<ng-template #detailTemplateC let-rpw="row">
-  <p>Pruebaaaaaaaaa</p>
-</ng-template>
+<div class="order-container">
+  <app-table-view
+    #tableView
+    [items]="items"
+    [columns]="columns"
+    [detailTemplate]="detailTemplateC"
+  ></app-table-view>
+  <ng-template
+    #orderIdCellTemplate
+    let-row="row"
+    let-expanded="expanded"
+    ngx-datatable-cell-template
+  ></ng-template>
+  <ng-template #detailTemplateC let-rpw="row">
+    <p>Pruebaaaaaaaaa</p>
+  </ng-template>
+</div>
