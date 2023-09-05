@@ -10,7 +10,25 @@
     let-row="row"
     let-expanded="expanded"
     ngx-datatable-cell-template
-  ></ng-template>
+  >
+    <div>
+      <div>
+        <div *ngIf="expanded" (click)="toggleExpandRow(row)">
+          <i class="fas fa-caret-down"></i>
+        </div>
+        <div *ngIf="!expanded" (click)="toggleExpandRow(row)">
+          <i class="fas-fa-caret-right"></i>
+        </div>
+      </div>
+      <div>
+        <div>
+          <a>
+            {{ row.orderId }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-template>
   <ng-template #detailTemplateC let-rpw="row">
     <p>Pruebaaaaaaaaa</p>
   </ng-template>
