@@ -1,4 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { OrderContainerService } from './order-container.service';
 import { OrderList } from '../models/order-list';
 import {
@@ -19,8 +24,13 @@ export class OrderContainerComponent {
   public detailColumns: object[] = [];
 
   @ViewChild('tableView') tableView!: TableViewComponent<any>;
+  @ViewChild('orderIdCellTemplate')
+  private orderIdCellTemplate!: TemplateRef<any>;
 
-  constructor(private service: OrderContainerService) {}
+  constructor(
+    private ref: ChangeDetectorRef,
+    private service: OrderContainerService
+  ) {}
 
   ngOnInit() {
     this.getOrders(1, 10);
@@ -65,7 +75,7 @@ export class OrderContainerComponent {
       {
         name: 'Product',
         flexGrow: 0.5,
-        prop: 'productName',
+        cellTemplate: this.orderIdCellTemplate,
       },
       {
         name: 'unitPrice',
@@ -78,5 +88,10 @@ export class OrderContainerComponent {
         prop: 'quantity',
       },
     ];
+  }
+
+  toggleExpandRow(row: number) {
+    this.tableView.toggleExpandRow(row);
+    this.ref.detectChanges();
   }
 }
