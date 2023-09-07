@@ -11,13 +11,21 @@
     let-expanded="expanded"
     ngx-datatable-cell-template
   >
-    <div>
+    <div class="row-container">
       <div>
-        <div *ngIf="expanded" (click)="toggleExpandRow(row)">
+        <div
+          *ngIf="expanded"
+          class="caret-container expanded"
+          (click)="toggleExpandRow(row)"
+        >
           <i class="fas fa-caret-down"></i>
         </div>
-        <div *ngIf="!expanded" (click)="toggleExpandRow(row)">
-          <i class="fas-fa-caret-right"></i>
+        <div
+          *ngIf="!expanded"
+          class="caret-container not-expanded"
+          (click)="toggleExpandRow(row)"
+        >
+          <i class="fas fa-caret-right"></i>
         </div>
       </div>
       <div>
