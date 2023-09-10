@@ -1,5 +1,7 @@
 # RecoveryDataForm
 
+Project to understand the manage of recoveryData with forms on Angular
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 ## Development server
