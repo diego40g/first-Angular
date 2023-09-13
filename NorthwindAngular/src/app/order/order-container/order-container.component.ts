@@ -21,11 +21,17 @@ export class OrderContainerComponent {
   items: OrderList[] = [];
   numberOfRecords? = 0;
   public columns: Column[] = [];
-  public detailColumns: object[] = [];
+  public detailColumns: Column[] = [];
+  isVisible = false;
+  pageSizeOptions: number[] = [10, 20, 0];
+  pageSize = 10;
+  pageIndex = 0;
 
   @ViewChild('tableView') tableView!: TableViewComponent<any>;
   @ViewChild('orderIdCellTemplate')
   private orderIdCellTemplate!: TemplateRef<any>;
+  @ViewChild('orderNumberCellTemplate')
+  private orderNumberCellTemplate!: TemplateRef<any>;
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -34,14 +40,24 @@ export class OrderContainerComponent {
 
   ngOnInit() {
     this.getOrders(1, 10);
+  }
+
+  changePage(event: any): void {
+    this.getOrders(event.pageIndex + 1, event.pageSize);
+  }
+
+  ngAfterViewInit(): void {
     this.columns = this.getColumns();
     this.detailColumns = this.getDetailsColumns();
+    this.ref.detectChanges();
   }
 
   getOrders(page: number, rows: number): void {
+    this.isVisible = true;
     this.service.getOrderList(page, rows).subscribe((response) => {
       this.items = response;
       this.numberOfRecords = response[0].totalRecords;
+      this.isVisible = false;
     });
   }
 
@@ -50,7 +66,8 @@ export class OrderContainerComponent {
       {
         name: 'Id',
         flexGrow: 0.5,
-        prop: 'orderId',
+        prop: '',
+        cellTemplate: this.orderIdCellTemplate,
       },
       {
         name: 'Customer',
@@ -70,12 +87,13 @@ export class OrderContainerComponent {
     ];
   }
 
-  private getDetailsColumns(): object[] {
+  private getDetailsColumns(): Column[] {
     return [
       {
         name: 'Product',
+        prop: 'product',
         flexGrow: 0.5,
-        cellTemplate: this.orderIdCellTemplate,
+        cellTemplate: 'productName',
       },
       {
         name: 'unitPrice',
