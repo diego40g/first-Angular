@@ -55,4 +55,15 @@ export class ClientComponent {
     this.clients = JSON.parse(localStorage.getItem('clients')!);
     this.products = JSON.parse(localStorage.getItem('products')!);
   }
+
+  deleteClient() {
+    localStorage.removeItem('clients');
+  }
+  deleteProduct() {
+    localStorage.removeItem('products');
+  }
+  deleteAll() {
+    this.deleteClient();
+    this.deleteProduct();
+  }
 }

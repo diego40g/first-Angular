@@ -1,6 +1,10 @@
 <button class="btn btn-secondary" (click)="saveClient()">Save client</button>
 <button class="btn btn-secondary" (click)="saveProduct()">Save product</button>
 <button class="btn btn-success" (click)="readAll()">Get all</button>
+<br />
+<button class="btn btn-danger" (click)="deleteClient()">Delete cliente</button>
+<button class="btn btn-danger" (click)="deleteProduct()">Delete product</button>
+<button class="btn btn-danger" (click)="deleteAll()">Delete all</button>
 
 <div class="container client_container">
   <div *ngFor="let client of clients">
