@@ -63,7 +63,6 @@ export class ClientComponent {
     localStorage.removeItem('products');
   }
   deleteAll() {
-    this.deleteClient();
-    this.deleteProduct();
+    localStorage.clear();
   }
 }
