@@ -15,45 +15,37 @@ interface Products {
   styleUrls: ['./client.component.sass'],
 })
 export class ClientComponent {
-  clients: Array<Client> = new Array<Client>();
-  products: Array<Products> = new Array<Products>();
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.clients.push(
+  saveClient() {
+    let addClients: Array<Client> = new Array<Client>();
+    addClients.push(
       {
-        firstname: 'Diego',
+        firstname: 'Ignacio',
         lastname: 'Paz',
         age: 25,
       },
       {
-        firstname: 'Ignacio',
-        lastname: 'Naula',
-        age: 27,
+        firstname: 'Damian',
+        lastname: 'Paz',
+        age: 22,
       }
     );
-
-    this.products.push(
-      {
-        name: 'maiz',
-        price: 1.55,
-      },
-      {
-        name: 'juice',
-        price: 0.75,
-      }
-    );
-  }
-
-  saveClient() {
-    localStorage.setItem('clients', JSON.stringify(this.clients));
+    localStorage.setItem('clients', JSON.stringify(addClients));
   }
   saveProduct() {
-    localStorage.setItem('products', JSON.stringify(this.products));
-  }
-
-  readAll() {
-    this.clients = JSON.parse(localStorage.getItem('clients')!);
-    this.products = JSON.parse(localStorage.getItem('products')!);
+    let addProducts: Array<Products> = new Array<Products>();
+    addProducts.push(
+      {
+        name: 'maiz',
+        price: 1.25,
+      },
+      {
+        name: 'mouse',
+        price: 2.2,
+      }
+    );
+    localStorage.setItem('products', JSON.stringify(addProducts));
   }
 
   deleteClient() {
@@ -64,5 +56,24 @@ export class ClientComponent {
   }
   deleteAll() {
     localStorage.clear();
+  }
+
+  get localClient(): Array<Client> {
+    let clientListLocalStorage: Client[] = JSON.parse(
+      localStorage.getItem('clients')!
+    );
+    if (clientListLocalStorage === null) {
+      return new Array<Client>();
+    }
+    return clientListLocalStorage;
+  }
+  get localProduct(): Array<Products> {
+    let productListLocalStorage: Products[] = JSON.parse(
+      localStorage.getItem('products')!
+    );
+    if (productListLocalStorage === null) {
+      return new Array<Products>();
+    }
+    return productListLocalStorage;
   }
 }
