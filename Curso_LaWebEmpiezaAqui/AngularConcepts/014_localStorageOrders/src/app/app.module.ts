@@ -10,6 +10,7 @@ import { OrderComponent } from './component/order/order.component';
 import { HomeComponent } from './component/home/home.component';
 import { AddClientComponent } from './component/add-client/add-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClientService } from './services/client.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddClientComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
-  providers: [],
+  providers: [ClientService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
