@@ -19,7 +19,11 @@
       ></textarea>
     </div>
 
-    <button [disabled]="!addForm.valid" class="btn btn-primary mt-5">
+    <button
+      [disabled]="!addForm.valid"
+      (click)="addClient()"
+      class="btn btn-primary mt-5"
+    >
       Agregar cliente
     </button>
   </form>

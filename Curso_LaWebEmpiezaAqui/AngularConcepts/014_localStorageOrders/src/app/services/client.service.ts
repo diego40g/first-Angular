@@ -9,6 +9,7 @@ export class ClientService {
 
   addLocalStorage(client: Client) {
     let oldClients: Client[] = this.clientsLocalStorage;
+    client.clientId = oldClients.length + 1;
     oldClients.push(client);
     localStorage.setItem('clients', JSON.stringify(oldClients));
   }

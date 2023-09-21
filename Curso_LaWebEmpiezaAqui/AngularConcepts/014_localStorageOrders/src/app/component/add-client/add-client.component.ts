@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Client } from 'src/app/models/client';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-add-client',
@@ -8,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddClientComponent {
   addForm!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  client: Client = new Client();
+  constructor(private fb: FormBuilder, public clientService: ClientService) {}
 
   ngOnInit() {
     this.addForm = this.fb.group({
@@ -16,5 +19,11 @@ export class AddClientComponent {
       lastname: ['', Validators.required],
       address: ['', Validators.required],
     });
+  }
+
+  addClient() {
+    this.client = this.addForm.value as Client;
+    this.clientService.addLocalStorage(this.client);
+    this.addForm.reset();
   }
 }
