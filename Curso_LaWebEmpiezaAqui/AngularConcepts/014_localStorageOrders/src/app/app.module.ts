@@ -11,6 +11,7 @@ import { HomeComponent } from './component/home/home.component';
 import { AddClientComponent } from './component/add-client/add-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from './services/client.service';
+import { AgregarProductsComponent } from './agregar-products/agregar-products.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ClientService } from './services/client.service';
     OrderComponent,
     HomeComponent,
     AddClientComponent,
+    AgregarProductsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [ClientService],
