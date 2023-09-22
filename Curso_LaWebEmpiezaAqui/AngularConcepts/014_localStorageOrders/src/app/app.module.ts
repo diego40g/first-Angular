@@ -11,7 +11,7 @@ import { HomeComponent } from './component/home/home.component';
 import { AddClientComponent } from './component/add-client/add-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from './services/client.service';
-import { AddProductsComponent } from './add-products/add-products.component';
+import { AddProductsComponent } from './component/add-products/add-products.component';
 
 @NgModule({
   declarations: [
