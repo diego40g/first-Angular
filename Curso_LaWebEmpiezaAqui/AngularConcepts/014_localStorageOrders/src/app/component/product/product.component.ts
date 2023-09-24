@@ -15,5 +15,22 @@ export class ProductComponent {
     this.products = this.productService.productsLocalStorage;
   }
 
-  searchproduct(event: Event) {}
+  searchproduct(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const searchWord: string = target.value;
+    this.products = this.productService.productsLocalStorage.filter(
+      (product) => {
+        const searchName = product.name?.toLocaleLowerCase() || '';
+        const searchDescription =
+          product.description?.toLocaleLowerCase() || '';
+
+        return (
+          searchName.includes(searchWord.toLowerCase()) ||
+          searchDescription.includes(searchWord.toLowerCase()) ||
+          product.price?.toString().includes(searchWord.toLowerCase()) ||
+          product.productId?.toString().includes(searchWord.toLowerCase())
+        );
+      }
+    );
+  }
 }
