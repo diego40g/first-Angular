@@ -12,6 +12,7 @@ import { AddClientComponent } from './component/add-client/add-client.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from './services/client.service';
 import { AddProductsComponent } from './component/add-products/add-products.component';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { AddProductsComponent } from './component/add-products/add-products.comp
     AddProductsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
-  providers: [ClientService],
+  providers: [ClientService, ProductService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
