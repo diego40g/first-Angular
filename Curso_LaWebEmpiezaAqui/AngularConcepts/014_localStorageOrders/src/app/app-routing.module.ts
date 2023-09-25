@@ -21,7 +21,7 @@ const routes: Routes = [
     component: ClientComponent,
   },
   {
-    path: 'add-product',
+    path: 'addproduct',
     component: AddProductsComponent,
   },
   {
