@@ -83,6 +83,7 @@ export class OrderContainerComponent {
         name: '# Order',
         prop: 'orderNumber',
         flexGrow: 0.5,
+        cellTemplate: this.orderNumberCellTemplate,
       },
     ];
   }
