@@ -44,6 +44,18 @@
       [columns]="detailColumns"
     ></app-table-view>
   </ng-template>
+  <ng-template
+    let-row="row"
+    let-expanded="expanded"
+    ngx-datatable-cell-template
+    #orderNumberCellTemplate
+  >
+    <div class="order-number">
+      <div>{{ row.orderNumber }}</div>
+      <div><mat-icon class="order-number-icon">arrow_forward</mat-icon></div>
+      <div><mat-icon class="order-number-icon">clear</mat-icon></div>
+    </div>
+  </ng-template>
   <div>
     <mat-paginator
       [length]="numberOfRecords"
