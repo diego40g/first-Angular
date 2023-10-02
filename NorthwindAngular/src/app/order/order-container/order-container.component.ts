@@ -23,7 +23,7 @@ export class OrderContainerComponent {
   public columns: Column[] = [];
   public detailColumns: Column[] = [];
   isVisible = false;
-  pageSizeOptions: number[] = [10, 20, 0];
+  pageSizeOptions: number[] = [10, 20, 30];
   pageSize = 10;
   pageIndex = 0;
 
@@ -91,17 +91,17 @@ export class OrderContainerComponent {
     return [
       {
         name: 'Product',
-        prop: 'product',
+        prop: 'productName',
         flexGrow: 0.5,
-        cellTemplate: 'productName',
+        // cellTemplate: 'productName',
       },
       {
-        name: 'unitPrice',
+        name: 'Unit Price',
         flexGrow: 0.5,
         prop: 'unitPrice',
       },
       {
-        name: 'quantity',
+        name: 'Quantity',
         flexGrow: 0.5,
         prop: 'quantity',
       },
