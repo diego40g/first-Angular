@@ -37,7 +37,21 @@
       </div>
     </div>
   </ng-template>
-  <ng-template #detailTemplateC let-rpw="row">
-    <p>Pruebaaaaaaaaa</p>
+  <ng-template #detailTemplateC let-row="row">
+    <app-table-view
+      class="detail-table"
+      [items]="row.orderDetails"
+      [columns]="detailColumns"
+    ></app-table-view>
   </ng-template>
+  <div>
+    <mat-paginator
+      [length]="numberOfRecords"
+      [pageIndex]="pageIndex"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="changePage($event)"
+    >
+    </mat-paginator>
+  </div>
 </div>
