@@ -1,1 +1,16 @@
-<p>order-detail works!</p>
+<div class="order-detail-contaienr">
+  <div class="order-header">
+    <div class="">
+      <label for="" class="order-edit-label">Order date: </label>
+      <label for="" class="">{{ orderItem.orderDate | date }}</label>
+    </div>
+    <div class="">
+      <label for="" class="order-edit-label">Customer name: </label>
+      <label for="" class="">{{ orderItem.customer }}</label>
+    </div>
+    <div class="">
+      <label for="" class="order-edit-label">Total amount: </label>
+      <label for="" class="">{{ orderItem.totalAmount }}</label>
+    </div>
+  </div>
+</div>
