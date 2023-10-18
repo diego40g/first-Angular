@@ -23,4 +23,10 @@ export class OrderDetailComponent {
       this.orderId = params['id'];
     });
   }
+
+  getOrderById(orderId: number): void {
+    this.service.getOrderById(orderId).subscribe(response => {
+      this.orderItem=response;
+    });
+  }
 }
