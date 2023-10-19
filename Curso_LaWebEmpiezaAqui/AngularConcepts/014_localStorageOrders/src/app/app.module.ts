@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from './services/client.service';
 import { AddProductsComponent } from './component/add-products/add-products.component';
 import { ProductService } from './services/product.service';
+import { OrderService } from './services/order.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ProductService } from './services/product.service';
     AddProductsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
-  providers: [ClientService, ProductService],
+  providers: [ClientService, ProductService, OrderService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
