@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client } from 'src/app/models/client';
 import { ClientService } from 'src/app/services/client.service';
 import { OrderService } from 'src/app/services/order.service';
@@ -12,7 +13,8 @@ export class HomeComponent {
   clients: Array<Client> = new Array<Client>();
   constructor(
     private clientsService: ClientService,
-    public orderService: OrderService
+    public orderService: OrderService,
+    public route: Router
   ) {}
 
   ngOnInit() {
@@ -34,5 +36,9 @@ export class HomeComponent {
         client.clientId?.toString().includes(searchWord.toLowerCase())
       );
     });
+  }
+
+  go2Products(client: Client) {
+    this.route.navigateByUrl('/product');
   }
 }
