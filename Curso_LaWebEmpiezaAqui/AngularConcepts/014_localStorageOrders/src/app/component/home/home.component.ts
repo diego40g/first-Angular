@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Client } from 'src/app/models/client';
 import { ClientService } from 'src/app/services/client.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,10 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class HomeComponent {
   clients: Array<Client> = new Array<Client>();
-  constructor(private clientsService: ClientService) {}
+  constructor(
+    private clientsService: ClientService,
+    public orderService: OrderService
+  ) {}
 
   ngOnInit() {
     this.clients = this.clientsService.clientsLocalStorage;

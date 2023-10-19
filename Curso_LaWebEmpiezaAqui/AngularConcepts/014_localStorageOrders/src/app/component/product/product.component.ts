@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { OrderService } from 'src/app/services/order.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent {
   products: Array<Product> = new Array<Product>();
-  constructor(public productService: ProductService) {}
+  constructor(
+    public productService: ProductService,
+    public orderService: OrderService
+  ) {}
 
   ngOnInit() {
     this.products = this.productService.productsLocalStorage;
