@@ -21,7 +21,7 @@
           <h6 class="subtitle">{{ product.productId }}</h6>
           <p class="card-text">{{ product.description }}</p>
           <p class="card-text">{{ product.price | currency : "$" }}</p>
-          <a href="#" class="card-link">Agregar</a>
+          <a (click)="add(product)" class="card-link">Agregar</a>
           <a href="#" class="card-link">Eliminar</a>
         </div>
       </div>

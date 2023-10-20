@@ -37,4 +37,9 @@ export class ProductComponent {
       }
     );
   }
+
+  add(product: Product) {
+    this.orderService.order.addProduct(product);
+    console.log(this.orderService.order);
+  }
 }
