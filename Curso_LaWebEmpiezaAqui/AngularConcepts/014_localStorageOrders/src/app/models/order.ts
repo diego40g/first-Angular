@@ -1,4 +1,5 @@
 import { OrderDetail } from './order-detail';
+import { Product } from './product';
 
 export class Order {
   pedidoId?: number;
@@ -13,5 +14,25 @@ export class Order {
     this.firstnameClient = this.firstnameClient;
     this.total = this.total;
     this.orderDetail = new Array<OrderDetail>();
+  }
+
+  addProduct(product: Product) {
+    let pedidoDetalle: OrderDetail = new OrderDetail();
+    pedidoDetalle.stock = 1;
+    pedidoDetalle.nameProduct = product.name;
+    pedidoDetalle.price = product.price;
+    pedidoDetalle.productId = product.productId;
+    pedidoDetalle.total = pedidoDetalle.stock * pedidoDetalle.price!;
+    let exists: number = this.orderDetail.filter(
+      (ls) => ls.productId === product.productId
+    ).length;
+    if (exists > 0) {
+      let position: number = this.orderDetail.findIndex(
+        (ls) => ls.productId === product.productId
+      );
+      this.orderDetail[position].stock!++;
+      this.orderDetail[position].total =
+        this.orderDetail[position].stock! * this.orderDetail[position].price!;
+    } else this.orderDetail.push(pedidoDetalle);
   }
 }
