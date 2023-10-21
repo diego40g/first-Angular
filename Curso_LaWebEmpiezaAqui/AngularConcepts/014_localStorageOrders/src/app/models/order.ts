@@ -33,6 +33,16 @@ export class Order {
       this.orderDetail[position].stock!++;
       this.orderDetail[position].total =
         this.orderDetail[position].stock! * this.orderDetail[position].price!;
-    } else this.orderDetail.push(pedidoDetalle);
+    } else {
+      this.orderDetail.push(pedidoDetalle);
+    }
+    this.updateTotal();
+  }
+
+  private updateTotal() {
+    this.total = 0;
+    this.orderDetail.forEach((product) => {
+      this.total! += product?.total!;
+    });
   }
 }
