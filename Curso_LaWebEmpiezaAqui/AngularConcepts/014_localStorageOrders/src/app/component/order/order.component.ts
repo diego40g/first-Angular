@@ -9,5 +9,7 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class OrderComponent {
   constructor(public orderService: OrderService) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.orderService.order;
+  }
 }
