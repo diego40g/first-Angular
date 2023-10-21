@@ -1,1 +1,30 @@
-<p>order works!</p>
+<div class="container">
+  <div class="client">
+    <h5>Cliente: {{ this.orderService.order.firstnameClient }}</h5>
+    <h6>
+      Total: <b>{{ this.orderService.order.total | currency }}</b>
+    </h6>
+  </div>
+  <div class="detail">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio unitario</th>
+          <th scope="col">Total producto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of this.orderService.order.orderDetail">
+          <th scope="row">{{ product.productId }}</th>
+          <td>{{ product.nameProduct }}</td>
+          <td>{{ product.price | currency : "$" }}</td>
+          <td>{{ product.stock }}</td>
+          <td>{{ product.total | currency : "$" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
