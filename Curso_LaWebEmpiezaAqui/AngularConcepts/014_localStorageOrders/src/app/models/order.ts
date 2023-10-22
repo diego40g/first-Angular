@@ -8,7 +8,15 @@ export class Order {
   total?: number;
   orderDetail!: Array<OrderDetail>;
 
-  constructor() {
+  constructor(datos?: Order) {
+    if (datos !== null) {
+      this.pedidoId = datos?.pedidoId;
+      this.clientId = datos?.clientId;
+      this.firstnameClient = datos?.firstnameClient;
+      this.total = datos?.total;
+      this.orderDetail = datos?.orderDetail!;
+      return;
+    }
     this.pedidoId = this.pedidoId;
     this.clientId = this.clientId;
     this.firstnameClient = this.firstnameClient;
