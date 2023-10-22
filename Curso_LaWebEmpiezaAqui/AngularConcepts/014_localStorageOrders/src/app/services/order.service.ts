@@ -6,5 +6,21 @@ import { Order } from '../models/order';
 })
 export class OrderService {
   order: Order = new Order();
-  constructor() {}
+  constructor() {
+    this.order = this.lastOrder;
+  }
+
+  saveLocalStorage() {
+    localStorage.setItem('lastOrder', JSON.stringify(this.order));
+  }
+
+  get lastOrder(): Order {
+    let orderLocalStorage: Order = new Order(
+      JSON.parse(localStorage.getItem('lastOrder')!)
+    );
+    if (orderLocalStorage === null) {
+      return new Order();
+    }
+    return orderLocalStorage;
+  }
 }
