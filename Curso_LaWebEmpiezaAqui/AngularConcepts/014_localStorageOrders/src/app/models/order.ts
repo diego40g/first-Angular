@@ -53,4 +53,10 @@ export class Order {
       this.total! += product?.total!;
     });
   }
+
+  public updateStockTotal(position: number) {
+    this.orderDetail[position].total =
+      this.orderDetail[position].stock! * this.orderDetail[position].price!;
+    this.updateTotal();
+  }
 }
