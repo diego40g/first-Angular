@@ -13,8 +13,7 @@ export class OrderComponent {
     this.orderService.order;
   }
   totalCalculate(position: number) {
-    this.orderService.order.orderDetail[position].total =
-      this.orderService.order.orderDetail[position].stock! *
-      this.orderService.order.orderDetail[position].price!;
+    this.orderService.order.updateStockTotal(position);
+    this.orderService.saveLocalStorage();
   }
 }
