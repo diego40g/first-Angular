@@ -17,11 +17,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of this.orderService.order.orderDetail">
+        <tr
+          *ngFor="
+            let product of this.orderService.order.orderDetail;
+            let position = index
+          "
+        >
           <th scope="row">{{ product.productId }}</th>
           <td>{{ product.nameProduct }}</td>
           <td>{{ product.price | currency : "$" }}</td>
-          <td>{{ product.stock }}</td>
+          <td>
+            <input
+              (input)="totalCalculate(position)"
+              [(ngModel)]="product.stock"
+              type="text"
+            />
+          </td>
           <td>{{ product.total | currency : "$" }}</td>
         </tr>
       </tbody>
