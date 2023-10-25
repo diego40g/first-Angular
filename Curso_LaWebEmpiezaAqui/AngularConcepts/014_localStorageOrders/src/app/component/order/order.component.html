@@ -1,8 +1,8 @@
 <div class="container">
   <div class="client">
-    <h5>Cliente: {{ this.orderService.order.firstnameClient }}</h5>
+    <h5>Cliente: {{ this.orderService.order?.firstnameClient }}</h5>
     <h6>
-      Total: <b>{{ this.orderService.order.total | currency }}</b>
+      Total: <b>{{ this.orderService.order?.total | currency }}</b>
     </h6>
   </div>
   <div class="detail">
@@ -19,7 +19,7 @@
       <tbody>
         <tr
           *ngFor="
-            let product of this.orderService.order.orderDetail;
+            let product of this.orderService.order?.orderDetail;
             let position = index
           "
         >
@@ -37,5 +37,6 @@
         </tr>
       </tbody>
     </table>
+    <button class="btn btn-primary" (click)="save()">Guardar</button>
   </div>
 </div>
