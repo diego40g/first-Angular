@@ -5,7 +5,7 @@ import { Order } from '../models/order';
   providedIn: 'root',
 })
 export class OrderService {
-  order: Order = new Order();
+  order: Order | null = new Order();
   constructor() {
     this.order = this.lastOrder;
   }
@@ -22,5 +22,22 @@ export class OrderService {
       return new Order();
     }
     return orderLocalStorage;
+  }
+
+  saveOrder() {
+    let ordersList: Order[] = new Array<Order>();
+    ordersList = this.orderListLocalStorage;
+    ordersList.push(this.order!);
+    localStorage.setItem('orders', JSON.stringify(ordersList));
+    localStorage.removeItem('lastOrder');
+    this.order = null;
+  }
+
+  get orderListLocalStorage(): Order[] {
+    let orders: Order[] = JSON.parse(localStorage.getItem('orders')!);
+    if (orders === null) {
+      return new Array<Order>();
+    }
+    return orders;
   }
 }

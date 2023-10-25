@@ -39,7 +39,7 @@ export class ProductComponent {
   }
 
   add(product: Product) {
-    this.orderService.order.addProduct(product);
+    this.orderService.order?.addProduct(product);
     this.orderService.saveLocalStorage();
     console.log(this.orderService.order);
   }

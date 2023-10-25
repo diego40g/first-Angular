@@ -39,8 +39,8 @@ export class HomeComponent {
   }
 
   go2Products(client: Client) {
-    this.orderService.order.clientId = client.clientId;
-    this.orderService.order.firstnameClient = `${client.firstname} ${client.lastname}`;
+    this.orderService.order!.clientId = client.clientId;
+    this.orderService.order!.firstnameClient = `${client.firstname} ${client.lastname}`;
     this.orderService.saveLocalStorage();
     this.route.navigateByUrl('/product');
   }
