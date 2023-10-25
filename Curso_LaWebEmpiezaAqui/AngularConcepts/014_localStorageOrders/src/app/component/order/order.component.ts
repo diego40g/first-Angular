@@ -13,7 +13,10 @@ export class OrderComponent {
     this.orderService.order;
   }
   totalCalculate(position: number) {
-    this.orderService.order.updateStockTotal(position);
+    this.orderService.order?.updateStockTotal(position);
     this.orderService.saveLocalStorage();
+  }
+  save() {
+    this.orderService.saveOrder();
   }
 }
