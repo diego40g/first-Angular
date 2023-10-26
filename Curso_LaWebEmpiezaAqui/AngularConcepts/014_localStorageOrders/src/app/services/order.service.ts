@@ -27,6 +27,7 @@ export class OrderService {
   saveOrder() {
     let ordersList: Order[] = new Array<Order>();
     ordersList = this.orderListLocalStorage;
+    this.order!.pedidoId = ordersList.length + 1;
     ordersList.push(this.order!);
     localStorage.setItem('orders', JSON.stringify(ordersList));
     localStorage.removeItem('lastOrder');
