@@ -39,6 +39,6 @@ export class OrderService {
     if (orders === null) {
       return new Array<Order>();
     }
-    return orders;
+    return orders.sort((a, b) => b.pedidoId! - a.pedidoId!);
   }
 }
