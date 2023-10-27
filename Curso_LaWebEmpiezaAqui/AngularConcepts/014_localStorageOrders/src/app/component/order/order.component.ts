@@ -19,4 +19,8 @@ export class OrderComponent {
   save() {
     this.orderService.saveOrder();
   }
+  delete(position: number) {
+    this.orderService.order?.orderDetail.splice(position, 1);
+    this.orderService.saveLocalStorage();
+  }
 }
