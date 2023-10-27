@@ -20,8 +20,14 @@
           </h5>
           <h6 class="subtitle">{{ client.clientId }}</h6>
           <p class="card-text">{{ client.address }}</p>
-          <a (click)="go2Products(client)" class="card-link">Agregar</a>
-          <a href="#" class="card-link">Información</a>
+          <button
+            type="button"
+            (click)="go2Products(client)"
+            class="btn btn-info"
+            style="color: white; width: 100%"
+          >
+            Seleccionar
+          </button>
         </div>
       </div>
     </div>

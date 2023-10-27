@@ -21,8 +21,13 @@
           <h6 class="subtitle">{{ product.productId }}</h6>
           <p class="card-text">{{ product.description }}</p>
           <p class="card-text">{{ product.price | currency : "$" }}</p>
-          <a (click)="add(product)" class="card-link">Agregar</a>
-          <a href="#" class="card-link">Eliminar</a>
+          <button
+            (click)="add(product)"
+            class="btn btn-info"
+            style="color: white; width: 100%"
+          >
+            Agregar
+          </button>
         </div>
       </div>
     </div>
