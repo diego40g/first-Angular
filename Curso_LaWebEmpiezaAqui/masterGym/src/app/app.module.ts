@@ -8,7 +8,10 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Utiliza 'compat' para mantener compatibilidad con versiones anteriores
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import {
+  AngularFireAuth,
+  AngularFireAuthModule,
+} from '@angular/fire/compat/auth';
 import { AuthComponent } from './auth/auth.component';
 import { environment } from 'src/environments/environment.development';
 
@@ -23,7 +26,7 @@ import { environment } from 'src/environments/environment.development';
     AngularFirestoreModule, // Módulo para Firestore (base de datos en tiempo real)
     AngularFireAuthModule, // Módulo para autenticación
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
