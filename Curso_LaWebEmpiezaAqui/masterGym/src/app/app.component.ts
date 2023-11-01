@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, User } from 'firebase/auth';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,11 +11,16 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'masterGym';
   user: Observable<any>;
+  fireUser?: User;
+  load: boolean = true;
 
   constructor(private auth: AngularFireAuth) {
     this.user = this.auth.authState;
     this.user.subscribe((user) => {
-      console.log(user);
+      setTimeout(() => {
+        this.load = false;
+        this.fireUser = user;
+      }, 2000);
     });
   }
 
