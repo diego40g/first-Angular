@@ -14,9 +14,10 @@ import {
 } from '@angular/fire/compat/auth';
 import { AuthComponent } from './auth/auth.component';
 import { environment } from 'src/environments/environment.development';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent],
+  declarations: [AppComponent, AuthComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
