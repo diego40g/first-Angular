@@ -13,12 +13,12 @@
     <p>Some contenet</p>
   </accordion-group>
 </accordion>
-<div *ngIf="user | async as user; else showLogin">
-  <h1>Hello {{ user.email }}</h1>
+<div *ngIf="fireUser && !load; else showLogin">
+  <h1>Hello {{ fireUser.email }}</h1>
   <button (click)="logout()">Logout</button>
 </div>
 <ng-template #showLogin>
-  <p>Please login.</p>
-  <button (click)="login()">Login with google</button>
+  <div *ngIf="load">loading...</div>
+  <app-login *ngIf="!load"></app-login>
 </ng-template>
 <router-outlet></router-outlet>
