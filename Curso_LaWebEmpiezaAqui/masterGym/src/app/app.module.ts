@@ -15,6 +15,7 @@ import {
 import { AuthComponent } from './auth/auth.component';
 import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, LoginComponent],
@@ -23,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     AccordionModule.forRoot(),
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase
     AngularFirestoreModule, // Módulo para Firestore (base de datos en tiempo real)
     AngularFireAuthModule, // Módulo para autenticación
