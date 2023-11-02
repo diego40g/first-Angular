@@ -3,10 +3,11 @@
     <img src="assets/logo.png" alt="" />
     <h3>Welcome, please complete your data</h3>
   </div>
-  <form action="">
+  <form [formGroup]="formLogin">
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input
+        formControlName="email"
         type="email"
         class="form-control"
         id="exampleInputEmail"
@@ -20,12 +21,15 @@
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input
+        formControlName="password"
         type="password"
         class="form-control"
         id="exampleInputPasssword1"
         placeholder="Password"
       />
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" [disabled]="!formLogin.valid" class="btn btn-primary">
+      Login
+    </button>
   </form>
 </div>
