@@ -20,7 +20,7 @@ export class AppComponent {
       setTimeout(() => {
         this.load = false;
         this.fireUser = user;
-      }, 2000);
+      }, 1000);
     });
   }
 
