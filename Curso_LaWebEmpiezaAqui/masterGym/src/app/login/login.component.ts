@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   formLogin!: FormGroup;
+  correctData: boolean = true;
 
   constructor(private addForm: FormBuilder, private fbAuth: AngularFireAuth) {}
 
@@ -20,6 +21,8 @@ export class LoginComponent {
   }
 
   login() {
+  if(this.formLogin.valid){
+    this.correctData = true;
     this.fbAuth
       .signInWithEmailAndPassword(
         this.formLogin.value.email,
@@ -28,5 +31,8 @@ export class LoginComponent {
       .then((user) => {
         console.log(user);
       });
+    }else{
+      this.correctData = false;
+    }
   }
 }
