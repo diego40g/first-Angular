@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   formLogin!: FormGroup;
   correctData: boolean = true;
+  errorText: string = "";
 
   constructor(private addForm: FormBuilder, private fbAuth: AngularFireAuth) {}
 
@@ -30,9 +31,13 @@ export class LoginComponent {
       )
       .then((user) => {
         console.log(user);
+      }).catch((error) => {
+        this.correctData=false;
+        this.errorText=error.message;
       });
     }else{
       this.correctData = false;
+      this.errorText="Please, check of information was correct"
     }
   }
 }
