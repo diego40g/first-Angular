@@ -17,6 +17,21 @@
       <small id="emailHelp" class="form-text text-muted"
         >We'll never share your email with anyone else.</small
       >
+      <div
+        *ngIf="
+          formLogin.controls['email'].invalid &&
+          formLogin.controls['email'].dirty
+        "
+        class="alert alert-danger"
+        role="alert"
+      >
+        <span *ngIf="formLogin.controls['email'].errors?.['required']"
+          >The email was required</span
+        >
+        <span *ngIf="formLogin.controls['email'].errors?.['email']"
+          >The email was not valid</span
+        >
+      </div>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
@@ -28,12 +43,29 @@
         id="exampleInputPasssword1"
         placeholder="Password"
       />
+      <div
+        *ngIf="
+          formLogin.controls['password'].invalid &&
+          formLogin.controls['password'].dirty
+        "
+        class="alert alert-danger"
+        role="alert"
+      >
+        <span *ngIf="formLogin.controls['password'].errors?.['required']"
+          >The password was required</span
+        >
+      </div>
     </div>
-    <button type="submit" (click)="login()" [disabled]="!formLogin.valid" class="btn btn-primary">
+    <button
+      type="submit"
+      (click)="login()"
+      [disabled]="!formLogin.valid"
+      class="btn btn-primary"
+    >
       Login
     </button>
   </form>
   <div *ngIf="!correctData" class="alert alert-warning" role="alert">
-    {{errorText}}
+    {{ errorText }}
   </div>
 </div>
