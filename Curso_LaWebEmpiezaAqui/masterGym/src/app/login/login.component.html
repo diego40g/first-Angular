@@ -22,14 +22,18 @@
       <label for="exampleInputPassword1">Password</label>
       <input
         formControlName="password"
+        (keyUp.enter)="login()"
         type="password"
         class="form-control"
         id="exampleInputPasssword1"
         placeholder="Password"
       />
     </div>
-    <button type="submit" [disabled]="!formLogin.valid" class="btn btn-primary">
+    <button type="submit" (click)="login()" [disabled]="!formLogin.valid" class="btn btn-primary">
       Login
     </button>
   </form>
+  <div *ngIf="!correctData" class="alert alert-warning" role="alert">
+    {{errorText}}
+  </div>
 </div>
