@@ -18,7 +18,12 @@
   <button (click)="logout()">Logout</button>
 </div>
 <ng-template #showLogin>
-  <div *ngIf="load">loading...</div>
+  <div *ngIf="load" class="text-center">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <app-login *ngIf="!load"></app-login>
 </ng-template>
 <router-outlet></router-outlet>
