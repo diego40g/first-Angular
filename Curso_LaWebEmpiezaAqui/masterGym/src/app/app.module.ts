@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { AuthComponent } from './auth/auth.component';
 import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, LoginComponent],
@@ -25,11 +26,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AccordionModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase
     AngularFirestoreModule, // Módulo para Firestore (base de datos en tiempo real)
     AngularFireAuthModule, // Módulo para autenticación
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
