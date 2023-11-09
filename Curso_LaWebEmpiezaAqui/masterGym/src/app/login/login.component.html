@@ -68,13 +68,14 @@
   <div *ngIf="!correctData" class="alert alert-warning" role="alert">
     {{ errorText }}
   </div>
-</div>
 
-<ngx-spinner
-  bdColor="rgba(0, 0, 0, 0.8)"
-  size="medium"
-  color="#fff"
-  type="square-jelly-box"
-  [fullScreen]="true"
-  ><p style="color: white">Loading...</p></ngx-spinner
->
+  <ngx-spinner
+    bdOpacity="0.9"
+    bdColor="#333"
+    size="medium"
+    color="#fff"
+    type="square-spin"
+    [fullScreen]="true"
+    ><p style="color: white">Loading...</p></ngx-spinner
+  >
+</div>
