@@ -37,16 +37,14 @@ export class LoginComponent {
         )
         .then((user) => {
           console.log(user);
-          setTimeout(() => {
-            this.spinner.hide();
-          }, 2000);
+          this.spinner.hide();
         })
         .catch((error) => {
           this.correctData = false;
           this.errorText = error.message;
-          setTimeout(() => {
-            this.spinner.hide();
-          }, 2000);
+          // setTimeout(() => {
+          // this.spinner.hide();
+          // }, 2000);
         });
     } else {
       this.correctData = false;
