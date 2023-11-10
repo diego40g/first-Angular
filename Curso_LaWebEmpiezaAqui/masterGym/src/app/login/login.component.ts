@@ -42,9 +42,7 @@ export class LoginComponent {
         .catch((error) => {
           this.correctData = false;
           this.errorText = error.message;
-          // setTimeout(() => {
-          // this.spinner.hide();
-          // }, 2000);
+          this.spinner.hide();
         });
     } else {
       this.correctData = false;
