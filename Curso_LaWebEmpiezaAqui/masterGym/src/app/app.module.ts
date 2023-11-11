@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, LoginComponent, NavbarComponent],
@@ -31,6 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase
     AngularFirestoreModule, // Módulo para Firestore (base de datos en tiempo real)
     AngularFireAuthModule, // Módulo para autenticación
+    BsDropdownModule.forRoot(),
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent],
