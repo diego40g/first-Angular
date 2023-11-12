@@ -19,9 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ClientListComponent } from './client-list/client-list.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, LoginComponent, NavbarComponent],
+  declarations: [AppComponent, AuthComponent, LoginComponent, NavbarComponent, ClientListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
