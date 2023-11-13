@@ -1,8 +1,6 @@
 <div *ngIf="fireUser && !load; else showLogin">
   <app-navbar></app-navbar>
   <router-outlet></router-outlet>
-  <h1>Hello {{ fireUser.email }}</h1>
-  <button (click)="logout()">Logout</button>
 </div>
 <ng-template #showLogin>
   <div *ngIf="load" class="text-center">
