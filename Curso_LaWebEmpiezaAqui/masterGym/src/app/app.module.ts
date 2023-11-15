@@ -15,20 +15,27 @@ import {
 import { AuthComponent } from './auth/auth.component';
 import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ClientListComponent } from './client-list/client-list.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, LoginComponent, NavbarComponent, ClientListComponent],
+  declarations: [
+    AppComponent,
+    AuthComponent,
+    LoginComponent,
+    NavbarComponent,
+    ClientListComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AccordionModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     NgxSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase
     AngularFirestoreModule, // Módulo para Firestore (base de datos en tiempo real)
