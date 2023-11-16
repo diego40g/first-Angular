@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Utiliza 'compat' para mantener compatibilidad con versiones anteriores
+import {
+  AngularFirestore,
+  AngularFirestoreModule,
+} from '@angular/fire/compat/firestore'; // Utiliza 'compat' para mantener compatibilidad con versiones anteriores
 import {
   AngularFireAuth,
   AngularFireAuthModule,
@@ -38,11 +41,11 @@ import { ClientListComponent } from './client-list/client-list.component';
     FormsModule,
     NgxSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase
-    AngularFirestoreModule, // Módulo para Firestore (base de datos en tiempo real)
+    AngularFirestoreModule, //Módulo para Firestore (base de datos en tiempo real)
     AngularFireAuthModule, // Módulo para autenticación
     BsDropdownModule.forRoot(),
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
