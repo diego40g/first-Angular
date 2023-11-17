@@ -23,6 +23,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ClientListComponent } from './client-list/client-list.component';
+import { ClientAddComponent } from './client-add/client-add.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ClientListComponent } from './client-list/client-list.component';
     LoginComponent,
     NavbarComponent,
     ClientListComponent,
+    ClientAddComponent,
   ],
   imports: [
     BrowserModule,
