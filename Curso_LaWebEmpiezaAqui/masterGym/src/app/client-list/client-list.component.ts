@@ -11,11 +11,33 @@ export class ClientListComponent {
   constructor(private db: AngularFirestore) {}
 
   ngOnInit() {
-    this.db
+    /*this.db
       .collection('client')
       .valueChanges()
       .subscribe((results) => {
         this.clients = results;
+      });*/
+    this.clients.length = 0;
+    this.db
+      .collection('client')
+      .get()
+      .subscribe((resultados) => {
+        console.log(resultados.docs);
+        resultados.docs.forEach((item) => {
+          console.log(item.id);
+          console.log(item.data());
+          console.log(item.ref);
+
+          let client: any = item.data();
+          client.id = item.id;
+          client.ref = item.ref;
+          this.clients.push(client);
+        });
+        for (let item of resultados.docs) {
+          console.log(item.id);
+          console.log(item.data());
+          console.log(item.ref);
+        }
       });
   }
 }
