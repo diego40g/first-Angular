@@ -1,1 +1,66 @@
-<p>client-add works!</p>
+<div class="container mt-5">
+  <form [formGroup]="clientForm">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="">Firstname</label>
+          <input type="text" class="form-control" formControlName="firstname" placeholder="Add firstname" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="">Lastname</label>
+          <input type="text" class="form-control" formControlName="lastname" placeholder="Add lastname" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="text" class="form-control" formControlName="email" placeholder="Add email" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="">Identification card</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="identificationCard"
+            placeholder="Add identification card"
+          />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="">Birthdate</label>
+          <input type="date" class="form-control" formControlName="birthdate" placeholder="Add birthdate" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="">Cellphone</label>
+          <input type="tel" class="form-control" formControlName="cellphone" placeholder="Add cellphone" />
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="">Image</label>
+          <input
+            type="file"
+            class="form-control-file"
+            formControlName="imageUrl"
+            placeholder="Add image"
+          />
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <progressbar [value]="22" type="danger" [striped]="true"
+          >22%</progressbar
+        >
+      </div>
+      <br />
+      <button class="btn btn-primary" (click)="addClient()">Add</button>
+      <br/>
+    </div>
+  </form>
+</div>
