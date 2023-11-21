@@ -24,6 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ClientListComponent } from './client-list/client-list.component';
 import { ClientAddComponent } from './client-add/client-add.component';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ClientAddComponent } from './client-add/client-add.component';
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
+    ProgressbarModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase
     AngularFirestoreModule, //Módulo para Firestore (base de datos en tiempo real)
     AngularFireAuthModule, // Módulo para autenticación
