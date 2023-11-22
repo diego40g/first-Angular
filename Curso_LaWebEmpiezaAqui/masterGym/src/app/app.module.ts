@@ -11,6 +11,7 @@ import {
   AngularFirestore,
   AngularFirestoreModule,
 } from '@angular/fire/compat/firestore'; // Utiliza 'compat' para mantener compatibilidad con versiones anteriores
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import {
   AngularFireAuth,
   AngularFireAuthModule,
@@ -42,6 +43,7 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    AngularFireStorageModule,
     NgxSpinnerModule,
     ProgressbarModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase
