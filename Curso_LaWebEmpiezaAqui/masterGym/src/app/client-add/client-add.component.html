@@ -5,18 +5,28 @@
         <div class="form-group">
           <label for="">Firstname</label>
           <input type="text" class="form-control" formControlName="firstname" placeholder="Add firstname" />
+          <div *ngIf="clientForm.controls['firstname'].invalid && clientForm.controls['firstname'].dirty" class="alert alert-danger" role="alert">
+            <span *ngIf="clientForm.controls['firstname'].errors?.['required']">The firstname was required</span>
+          </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="form-group">
           <label for="">Lastname</label>
           <input type="text" class="form-control" formControlName="lastname" placeholder="Add lastname" />
+          <div *ngIf="clientForm.controls['lastname'].invalid && clientForm.controls['lastname'].dirty" class="alert alert-danger" role="alert">
+            <span *ngIf="clientForm.controls['lastname'].errors?.['required']">The lastname was required</span>
+          </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="form-group">
           <label for="">Email</label>
           <input type="text" class="form-control" formControlName="email" placeholder="Add email" />
+          <div *ngIf="clientForm.controls['email'].invalid && clientForm.controls['email'].dirty" class="alert alert-danger" role="alert">
+            <span *ngIf="clientForm.controls['email'].errors?.['required']">The email was required</span>
+            <span *ngIf="clientForm.controls['email'].errors?.['email']">The email was not valid</span>
+          </div>
         </div>
       </div>
       <div class="col-sm-4">
@@ -34,6 +44,9 @@
         <div class="form-group">
           <label for="">Birthdate</label>
           <input type="date" class="form-control" formControlName="birthdate" placeholder="Add birthdate" />
+          <div *ngIf="clientForm.controls['birthdate'].invalid && clientForm.controls['birthdate'].dirty" class="alert alert-danger" role="alert">
+            <span *ngIf="clientForm.controls['birthdate'].errors?.['required']">The birthdate was required</span>
+          </div>
         </div>
       </div>
       <div class="col-sm-4">
@@ -51,6 +64,9 @@
             formControlName="imageUrl"
             placeholder="Add image"
           />
+          <div *ngIf="clientForm.controls['imageUrl'].invalid && clientForm.controls['imageUrl'].dirty" class="alert alert-danger" role="alert">
+            <span *ngIf="clientForm.controls['imageUrl'].errors?.['required']">The imageUrl was required</span>
+          </div>
         </div>
       </div>
       <div class="col-sm-12">
