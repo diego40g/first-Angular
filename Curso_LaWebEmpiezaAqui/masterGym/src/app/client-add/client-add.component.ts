@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ClientAddComponent {
   clientForm!: FormGroup;
   uploadPercentange: number = 0;
-  constructor(private fb: FormBuilder, private storage: AngularFireStorage) { }
+  constructor(private fb: FormBuilder, private storage: AngularFireStorage, private db: AngularFirestore) { }
   ngOnInit() {
     console.log(new Date().getTime().toString());
     
@@ -29,6 +30,9 @@ export class ClientAddComponent {
 
   addClient() { 
     console.log(this.clientForm.value);
+    this.db.collection('clients').add(this.clientForm.value).then((end) => {
+      console.log('Adding register');
+    });
   }
 
   addImage(event: any) {
