@@ -60,6 +60,7 @@
           <label for="">Image</label>
           <input
             type="file"
+            (change)="addImage($event)"
             class="form-control-file"
             formControlName="imageUrl"
             placeholder="Add image"
@@ -70,8 +71,8 @@
         </div>
       </div>
       <div class="col-sm-12 mb-3">
-        <progressbar [value]="22" type="danger" [striped]="true"
-          >22%</progressbar
+        <progressbar [value]="uploadPercentange" type="danger" [striped]="true"
+          >{{uploadPercentange}}%</progressbar
         >
       </div>
       <br />
