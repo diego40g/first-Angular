@@ -26,12 +26,13 @@ export class ClientAddComponent {
       identificationCard: [''],
       birthdate: ['',Validators.required],
       cellphone: [''],
-      imageUrl: ['',Validators.required]
+      profilePicture: ['',Validators.required]
     });
   }
 
   addClient() { 
-    this.clientForm.value.imageUrl = this.imageUrl;
+    this.clientForm.value.profilePicture = this.imageUrl;
+    this.clientForm.value.birthdate = new Date(this.clientForm.value.birthdate);
     console.log(this.clientForm.value);
     this.db.collection('clients').add(this.clientForm.value).then((end) => {
       console.log('Adding register');
