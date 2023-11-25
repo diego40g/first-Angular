@@ -19,7 +19,7 @@ export class ClientListComponent {
       });*/
     this.clients.length = 0;
     this.db
-      .collection('client')
+      .collection('clients')
       .get()
       .subscribe((resultados) => {
         console.log(resultados.docs);
