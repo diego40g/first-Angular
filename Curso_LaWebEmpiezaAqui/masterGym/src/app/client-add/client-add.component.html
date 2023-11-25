@@ -62,11 +62,11 @@
             type="file"
             (change)="addImage($event)"
             class="form-control-file"
-            formControlName="imageUrl"
+            formControlName="profilePicture"
             placeholder="Add image"
           />
-          <div *ngIf="clientForm.controls['imageUrl'].invalid && clientForm.controls['imageUrl'].dirty" class="alert alert-danger" role="alert">
-            <span *ngIf="clientForm.controls['imageUrl'].errors?.['required']">The imageUrl was required</span>
+          <div *ngIf="clientForm.controls['profilePicture'].invalid && clientForm.controls['profilePicture'].dirty" class="alert alert-danger" role="alert">
+            <span *ngIf="clientForm.controls['profilePicture'].errors?.['required']">The image profile was required</span>
           </div>
         </div>
       </div>

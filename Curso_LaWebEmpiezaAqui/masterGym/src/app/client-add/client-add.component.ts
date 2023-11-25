@@ -11,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ClientAddComponent {
   clientForm!: FormGroup;
   uploadPercentange: number = 0;
+  imageUrl: string = '';
+
   constructor(private fb: FormBuilder, private storage: AngularFireStorage, private db: AngularFirestore) { }
   ngOnInit() {
     console.log(new Date().getTime().toString());
@@ -29,6 +31,7 @@ export class ClientAddComponent {
   }
 
   addClient() { 
+    this.clientForm.value.imageUrl = this.imageUrl;
     console.log(this.clientForm.value);
     this.db.collection('clients').add(this.clientForm.value).then((end) => {
       console.log('Adding register');
@@ -36,20 +39,21 @@ export class ClientAddComponent {
   }
 
   addImage(event: any) {
-    const fecha = new Date().getTime().toString();
-    const file = event.target.files[0];
-    const filePath = `clients/${fecha+file.name}`;
-    const reference = this.storage.ref(filePath);
-    const task = reference.put(file);
-    task.then((obj) => {
-      console.log('Image uploaded');
-      reference.getDownloadURL().subscribe((url) => {
-        console.log(url);
-        this.clientForm.get('imageUrl')?.setValue(url);
+    if(event.target.files.length > 0) {
+      const fecha = new Date().getTime().toString();
+      const file = event.target.files[0];
+      const filePath = `clients/${fecha+file.name}`;
+      const reference = this.storage.ref(filePath);
+      const task = reference.put(file);
+      task.then((obj) => {
+        console.log('Image uploaded');
+        reference.getDownloadURL().subscribe((url) => {
+          this.imageUrl = url;
+        });
       });
-    });
-    task.percentageChanges().subscribe((percentage) => {
-      this.uploadPercentange = parseInt(percentage!.toString());
-    });
+      task.percentageChanges().subscribe((percentage) => {
+        this.uploadPercentange = parseInt(percentage!.toString());
+      });
+    }
   }
 }
