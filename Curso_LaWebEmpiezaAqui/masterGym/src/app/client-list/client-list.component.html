@@ -23,7 +23,7 @@
           <h5 class="card-tittle">
             {{ client.firstname }} {{ client.lastname }}
           </h5>
-          <a href="#" class="card-link">Edit</a>
+          <a [routerLink]="['/client-add/' ,client.id]" class="card-link">Edit</a>
           <a href="#" class="card-link text-danger">Disable</a>
         </div>
       </div>
