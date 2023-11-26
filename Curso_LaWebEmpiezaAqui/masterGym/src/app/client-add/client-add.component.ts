@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-client-add',
@@ -13,7 +14,13 @@ export class ClientAddComponent {
   uploadPercentange: number = 0;
   imageUrl: string = '';
 
-  constructor(private fb: FormBuilder, private storage: AngularFireStorage, private db: AngularFirestore) { }
+  constructor(
+    private fb: FormBuilder, 
+    private storage: AngularFireStorage, 
+    private db: AngularFirestore,
+    private activeRoute: ActivatedRoute,
+  ) { }
+
   ngOnInit() {
     console.log(new Date().getTime().toString());
     
@@ -27,6 +34,22 @@ export class ClientAddComponent {
       birthdate: ['',Validators.required],
       cellphone: [''],
       profilePicture: ['',Validators.required]
+    });
+
+    const id = this.activeRoute.snapshot.params['clientId'];
+    
+    this.db.doc<any>('clients/'+id).valueChanges().subscribe((client) => {
+      console.log(client);
+      this.clientForm.setValue({
+        firstname: client.firstname,
+        lastname: client.lastname,
+        email: client.email,
+        birthdate: client.birthdate,
+        cellphone: client.cellphone,
+        identificationCard: client.identificationCard,
+        profilePicture: '',
+      });
+      this.imageUrl = client.profilePicture;
     });
   }
 
