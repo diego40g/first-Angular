@@ -13,6 +13,8 @@ export class ClientAddComponent {
   clientForm!: FormGroup;
   uploadPercentange: number = 0;
   imageUrl: string = '';
+  isEdit: boolean = false;
+  id!: string;
 
   constructor(
     private fb: FormBuilder, 
@@ -36,20 +38,22 @@ export class ClientAddComponent {
       profilePicture: ['',Validators.required]
     });
 
-    const id = this.activeRoute.snapshot.params['clientId'];
-    
-    this.db.doc<any>('clients/'+id).valueChanges().subscribe((client) => {
-      this.clientForm.setValue({
-        firstname: client.firstname,
-        lastname: client.lastname,
-        email: client.email,
-        birthdate: new Date(client.birthdate.seconds * 1000).toISOString().substring(0, 10),
-        cellphone: client.cellphone,
-        identificationCard: client.identificationCard,
-        profilePicture: '',
+    this.id = this.activeRoute.snapshot.params['clientId'];
+    if(this.id !== undefined) {
+      this.isEdit = true;
+      this.db.doc<any>('clients/'+this.id).valueChanges().subscribe((client) => {
+        this.clientForm.setValue({
+          firstname: client.firstname,
+          lastname: client.lastname,
+          email: client.email,
+          birthdate: new Date(client.birthdate.seconds * 1000).toISOString().substring(0, 10),
+          cellphone: client.cellphone,
+          identificationCard: client.identificationCard,
+          profilePicture: '',
+        });
+        this.imageUrl = client.profilePicture;
       });
-      this.imageUrl = client.profilePicture;
-    });
+    }
   }
 
   addClient() { 
@@ -58,6 +62,18 @@ export class ClientAddComponent {
     console.log(this.clientForm.value);
     this.db.collection('clients').add(this.clientForm.value).then((end) => {
       console.log('Adding register');
+    }).catch((error) => {
+      console.log(error);
+    });;
+  }
+
+  editClient() { 
+    this.clientForm.value.profilePicture = this.imageUrl;
+    this.clientForm.value.birthdate = new Date(this.clientForm.value.birthdate);
+    this.db.doc('clients/'+this.id).update(this.clientForm.value).then((end) => {
+      console.log('Updating register');
+    }).catch((error) => {
+      console.log(error);
     });
   }
 
