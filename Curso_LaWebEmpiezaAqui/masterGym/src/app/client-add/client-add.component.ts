@@ -39,12 +39,11 @@ export class ClientAddComponent {
     const id = this.activeRoute.snapshot.params['clientId'];
     
     this.db.doc<any>('clients/'+id).valueChanges().subscribe((client) => {
-      console.log(client);
       this.clientForm.setValue({
         firstname: client.firstname,
         lastname: client.lastname,
         email: client.email,
-        birthdate: client.birthdate,
+        birthdate: new Date(client.birthdate.seconds * 1000).toISOString().substring(0, 10),
         cellphone: client.cellphone,
         identificationCard: client.identificationCard,
         profilePicture: '',
