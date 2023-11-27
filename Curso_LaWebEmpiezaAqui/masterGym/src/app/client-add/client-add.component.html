@@ -76,7 +76,8 @@
         >
       </div>
       <br />
-      <button class="btn btn-primary" [disabled]="clientForm.invalid" (click)="addClient()">Add</button>
+      <button *ngIf="!isEdit" class="btn btn-primary" [disabled]="clientForm.invalid" (click)="addClient()">Add</button>
+      <button *ngIf="isEdit" class="btn btn-primary" [disabled]="clientForm.invalid" (click)="editClient()">Edit</button>
       <br/>
     </div>
   </form>
