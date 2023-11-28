@@ -3,6 +3,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-client-add',
@@ -61,9 +62,19 @@ export class ClientAddComponent {
     this.clientForm.value.birthdate = new Date(this.clientForm.value.birthdate);
     console.log(this.clientForm.value);
     this.db.collection('clients').add(this.clientForm.value).then((end) => {
-      console.log('Adding register');
+      Swal.fire({
+        title: 'Message',
+        text: 'Adding was correct',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
     }).catch((error) => {
-      console.log(error);
+      Swal.fire({
+        title: 'Error!',
+        text: `Do you want to continue ${error.message}?`,
+        icon: 'error',
+        confirmButtonText: 'Cool'
+      })
     });;
   }
 
@@ -71,9 +82,19 @@ export class ClientAddComponent {
     this.clientForm.value.profilePicture = this.imageUrl;
     this.clientForm.value.birthdate = new Date(this.clientForm.value.birthdate);
     this.db.doc('clients/'+this.id).update(this.clientForm.value).then((end) => {
-      console.log('Updating register');
+      Swal.fire({
+        title: 'Message',
+        text: 'Updating was correct',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
     }).catch((error) => {
-      console.log(error);
+      Swal.fire({
+        title: 'Error!',
+        text: `Do you want to continue ${error.message}?`,
+        icon: 'error',
+        confirmButtonText: 'Cool'
+      })
     });
   }
 
