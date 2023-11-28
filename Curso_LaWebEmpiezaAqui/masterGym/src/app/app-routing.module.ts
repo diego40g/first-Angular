@@ -9,7 +9,7 @@ const routes: Routes = [
     component: ClientListComponent,
   },
   {
-    path: 'client-add/',
+    path: 'client-add',
     component: ClientAddComponent,
   },
   {
