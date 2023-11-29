@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2'
+import { MessagesService } from '../services/messages.service';
 
 @Component({
   selector: 'app-client-add',
@@ -22,6 +23,7 @@ export class ClientAddComponent {
     private storage: AngularFireStorage, 
     private db: AngularFirestore,
     private activeRoute: ActivatedRoute,
+    private msj: MessagesService
   ) { }
 
   ngOnInit() {
@@ -62,39 +64,19 @@ export class ClientAddComponent {
     this.clientForm.value.birthdate = new Date(this.clientForm.value.birthdate);
     console.log(this.clientForm.value);
     this.db.collection('clients').add(this.clientForm.value).then((end) => {
-      Swal.fire({
-        title: 'Message',
-        text: 'Adding was correct',
-        icon: 'success',
-        confirmButtonText: 'Cool'
-      })
+      this.msj.messageSuccess('Message', 'Adding was correct');
     }).catch((error) => {
-      Swal.fire({
-        title: 'Error!',
-        text: `Do you want to continue ${error.message}?`,
-        icon: 'error',
-        confirmButtonText: 'Cool'
-      })
-    });;
+      this.msj.messageError('Error!', `Do you want to continue ${error.message}?`);
+    });
   }
 
   editClient() { 
     this.clientForm.value.profilePicture = this.imageUrl;
     this.clientForm.value.birthdate = new Date(this.clientForm.value.birthdate);
     this.db.doc('clients/'+this.id).update(this.clientForm.value).then((end) => {
-      Swal.fire({
-        title: 'Message',
-        text: 'Updating was correct',
-        icon: 'success',
-        confirmButtonText: 'Cool'
-      })
+      this.msj.messageSuccess('Message', 'Updating was correct');
     }).catch((error) => {
-      Swal.fire({
-        title: 'Error!',
-        text: `Do you want to continue ${error.message}?`,
-        icon: 'error',
-        confirmButtonText: 'Cool'
-      })
+      this.msj.messageError('Error!', `Do you want to continue ${error.message}?`);
     });
   }
 
