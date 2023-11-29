@@ -26,6 +26,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ClientListComponent } from './client-list/client-list.component';
 import { ClientAddComponent } from './client-add/client-add.component';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { MessagesService } from './services/messages.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
     AngularFireAuthModule, // Módulo para autenticación
     BsDropdownModule.forRoot(),
   ],
-  providers: [AngularFireAuth, AngularFirestore],
+  providers: [AngularFireAuth, AngularFirestore, MessagesService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
