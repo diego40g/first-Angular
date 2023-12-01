@@ -27,6 +27,7 @@ import { ClientListComponent } from './client-list/client-list.component';
 import { ClientAddComponent } from './client-add/client-add.component';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { MessagesService } from './services/messages.service';
+import { PricesComponent } from './prices/prices.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MessagesService } from './services/messages.service';
     NavbarComponent,
     ClientListComponent,
     ClientAddComponent,
+    PricesComponent,
   ],
   imports: [
     BrowserModule,
