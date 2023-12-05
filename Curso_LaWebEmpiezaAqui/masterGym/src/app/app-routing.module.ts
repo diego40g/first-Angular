@@ -9,6 +9,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'inscription',
+    pathMatch: 'full',
   },
   {
     path: 'inscription',
