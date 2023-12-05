@@ -3,8 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientListComponent } from './client-list/client-list.component';
 import { ClientAddComponent } from './client-add/client-add.component';
 import { PricesComponent } from './prices/prices.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'inscription',
+  },
+  {
+    path: 'inscription',
+    component: InscriptionComponent,
+  },
   {
     path: 'client-list',
     component: ClientListComponent,
@@ -18,7 +27,8 @@ const routes: Routes = [
     component: ClientAddComponent,
   },
   {
-    path: 'prices', component: PricesComponent
+    path: 'prices',
+    component: PricesComponent,
   },
 ];
 
