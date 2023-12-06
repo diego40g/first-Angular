@@ -29,6 +29,7 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { MessagesService } from './services/messages.service';
 import { PricesComponent } from './prices/prices.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ClientSelectComponent } from './client-select/client-select.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
     ClientAddComponent,
     PricesComponent,
     InscriptionComponent,
+    ClientSelectComponent,
   ],
   imports: [
     BrowserModule,
