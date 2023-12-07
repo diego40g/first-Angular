@@ -10,4 +10,5 @@ export class Client {
   cellphone!: string;
   profilePicture!: string;
   ref!: DocumentReference;
+  visible!: boolean;
 }
