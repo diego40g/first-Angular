@@ -22,9 +22,21 @@ export class ClientSelectComponent {
           let client: Client = item.data() as Client;
           client.id = item.id;
           client.ref = item.ref;
+          client.visible = false;
           this.clients.push(client);
         });
         console.log(this.clients);
       });
+  }
+
+  searchClient(evento: any) {
+    const firstname = (evento.target as HTMLInputElement)?.value.toLowerCase();
+    this.clients.forEach((client) => {
+      if (client.firstname.toLowerCase().includes(firstname.toLowerCase())) {
+        client.visible = true;
+      } else {
+        client.visible = false;
+      }
+    });
   }
 }
