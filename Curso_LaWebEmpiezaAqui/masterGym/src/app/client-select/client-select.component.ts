@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Client } from '../models/client';
 
@@ -9,6 +9,7 @@ import { Client } from '../models/client';
 })
 export class ClientSelectComponent {
   clients: Client[] = new Array<Client>();
+  @Input('firstname') firstname: string = '';
 
   constructor(private db: AngularFirestore) {}
 
@@ -32,11 +33,19 @@ export class ClientSelectComponent {
   searchClient(evento: any) {
     const firstname = (evento.target as HTMLInputElement)?.value.toLowerCase();
     this.clients.forEach((client) => {
-      if (client.firstname.toLowerCase().includes(firstname.toLowerCase())) {
+      console.log(client);
+      console.log(firstname);
+
+      if (client.firstname.toLowerCase().includes(firstname)) {
         client.visible = true;
       } else {
         client.visible = false;
       }
     });
+  }
+
+  selectClient(client: Client) {
+    this.firstname = client.firstname + ' ' + client.lastname;
+    console.log(client);
   }
 }
