@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Client } from '../models/client';
 
@@ -10,7 +10,8 @@ import { Client } from '../models/client';
 export class ClientSelectComponent {
   clients: Client[] = new Array<Client>();
   @Input('firstname') firstname: string = '';
-
+  @Output('clientSelect') clientSelect = new EventEmitter<Client>();
+  @Output('clientCancel') cientCancel = new EventEmitter();
   constructor(private db: AngularFirestore) {}
 
   ngOnInit(): void {
