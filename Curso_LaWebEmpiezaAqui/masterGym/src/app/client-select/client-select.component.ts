@@ -33,9 +33,6 @@ export class ClientSelectComponent {
   searchClient(evento: any) {
     const firstname = (evento.target as HTMLInputElement)?.value.toLowerCase();
     this.clients.forEach((client) => {
-      console.log(client);
-      console.log(firstname);
-
       if (client.firstname.toLowerCase().includes(firstname)) {
         client.visible = true;
       } else {
@@ -46,6 +43,13 @@ export class ClientSelectComponent {
 
   selectClient(client: Client) {
     this.firstname = client.firstname + ' ' + client.lastname;
+    this.clients.forEach((client) => {
+      client.visible = false;
+    });
     console.log(client);
+  }
+
+  cancelClient() {
+    this.firstname = '';
   }
 }
