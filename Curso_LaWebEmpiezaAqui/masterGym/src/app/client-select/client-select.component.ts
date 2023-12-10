@@ -11,7 +11,7 @@ export class ClientSelectComponent {
   clients: Client[] = new Array<Client>();
   @Input('firstname') firstname: string = '';
   @Output('clientSelect') clientSelect = new EventEmitter<Client>();
-  @Output('clientCancel') cientCancel = new EventEmitter();
+  @Output('clientCancel') clientCancel = new EventEmitter();
   constructor(private db: AngularFirestore) {}
 
   ngOnInit(): void {
@@ -47,10 +47,11 @@ export class ClientSelectComponent {
     this.clients.forEach((client) => {
       client.visible = false;
     });
-    console.log(client);
+    this.clientSelect.emit(client);
   }
 
   cancelClient() {
     this.firstname = '';
+    this.clientCancel.emit();
   }
 }
