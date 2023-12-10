@@ -1,7 +1,13 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-sm-6">
-      <app-client-select></app-client-select>
+      <app-client-select
+        (clientCancel)="deleteClient()"
+        [firstname]="selectedClient.firstname"
+        (clientSelect)="assignClient($event)"
+      ></app-client-select>
+
+      <button class="btn btn-primary" (click)="saveClient()">Save</button>
     </div>
     <div class="col-sm-6">Segundo</div>
   </div>
