@@ -7,6 +7,15 @@
         (clientSelect)="assignClient($event)"
       ></app-client-select>
 
+      <div class="from-control mb-5">
+        <label for="">Price</label>
+        <select class="form-control" name="" id="">
+          <option *ngFor="let price of prices" value="">
+            {{ price.name }}
+          </option>
+        </select>
+      </div>
+
       <button class="btn btn-primary" (click)="saveClient()">Save</button>
     </div>
     <div class="col-sm-6">Segundo</div>
