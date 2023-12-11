@@ -11,5 +11,11 @@ export class Inscription {
 
   constructor() {
     this.dateInscription = this.dateInscription;
+    this.dateFinal = this.dateFinal;
+    this.client = this.client;
+    this.price = this.price;
+    this.subTotal = this.subTotal;
+    this.iva = this.iva;
+    this.total = this.total;
   }
 }
