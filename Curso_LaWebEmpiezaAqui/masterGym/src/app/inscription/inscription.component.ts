@@ -12,6 +12,7 @@ import { Price } from '../models/price';
 export class InscriptionComponent {
   inscription: Inscription = new Inscription();
   selectedClient: Client = new Client();
+  selectedPrice: Price | undefined = new Price();
   prices: Price[] = new Array<Price>();
 
   constructor(private db: AngularFirestore) {}
@@ -42,5 +43,12 @@ export class InscriptionComponent {
 
   saveClient() {
     console.log(this.inscription);
+  }
+
+  selectPrice(evento: any) {
+    const id = (evento.target as HTMLInputElement)?.value;
+    this.selectedPrice = this.prices.find((x) => x.id == id);
+    this.inscription.price = this.selectedPrice?.ref!;
+    console.log(this.selectedPrice);
   }
 }
