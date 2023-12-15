@@ -21,6 +21,24 @@
           </option>
         </select>
       </div>
+      <div class="from-control">
+        <label for="">Date Initi</label>
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="inscription.dateInscription"
+        />
+      </div>
+      <div class="from-control">
+        <label for="">Last Date</label>
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="inscription.dateFinal"
+        />
+      </div>
 
       <button class="btn btn-primary" (click)="saveClient()">Save</button>
     </div>
