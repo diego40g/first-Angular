@@ -27,7 +27,10 @@
           type="text"
           class="form-control"
           disabled
-          [value]="inscription.dateInscription"
+          [value]="
+            inscription.dateInscription
+              | date : 'EEEE dd \'de\' MMMM \'del\' yyyy'
+          "
         />
       </div>
       <div class="from-control">
