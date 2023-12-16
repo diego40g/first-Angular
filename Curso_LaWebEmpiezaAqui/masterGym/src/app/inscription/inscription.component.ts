@@ -49,6 +49,7 @@ export class InscriptionComponent {
     const id = (evento.target as HTMLInputElement)?.value;
     this.selectedPrice = this.prices.find((x) => x.id == id);
     this.inscription.price = this.selectedPrice?.ref!;
-    console.log(this.selectedPrice);
+
+    this.inscription.dateInscription = new Date();
   }
 }
