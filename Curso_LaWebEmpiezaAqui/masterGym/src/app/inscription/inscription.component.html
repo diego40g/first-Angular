@@ -45,6 +45,10 @@
 
       <button class="btn btn-primary" (click)="saveClient()">Save</button>
     </div>
-    <div class="col-sm-6">Segundo</div>
+    <div class="col-sm-6">
+      <div *ngIf="selectedClient.profilePicture">
+        <img [src]="selectedClient.profilePicture" class="imgClient" alt="" />
+      </div>
+    </div>
   </div>
 </div>
