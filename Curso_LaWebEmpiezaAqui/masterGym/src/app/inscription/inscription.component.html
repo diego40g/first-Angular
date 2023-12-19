@@ -7,7 +7,7 @@
         (clientSelect)="assignClient($event)"
       ></app-client-select>
 
-      <div class="from-control mb-5">
+      <div class="from-control mb-3">
         <label for="">Price</label>
         <select
           (change)="selectPrice($event)"
@@ -39,11 +39,46 @@
           type="text"
           class="form-control"
           disabled
-          [value]="inscription.dateFinal"
+          [value]="
+            inscription.dateFinal | date : 'EEEE dd \'de\' MMMM \'del\' yyyy'
+          "
         />
       </div>
 
-      <button class="btn btn-primary" (click)="saveClient()">Save</button>
+      <div class="from-control">
+        <label for="">Subtotal</label>
+        <input
+          type="number"
+          step="0.01"
+          class="form-control"
+          disabled
+          [value]="inscription.subTotal"
+        />
+      </div>
+      <div class="from-control">
+        <label for="">IVA</label>
+        <input
+          type="number"
+          step="0.01"
+          class="form-control"
+          disabled
+          [value]="inscription.iva"
+        />
+      </div>
+      <div class="from-control">
+        <label for="">Total</label>
+        <input
+          type="number"
+          step="0.01"
+          class="form-control"
+          disabled
+          [value]="inscription.total"
+        />
+      </div>
+
+      <button class="btn btn-primary mt-3 w-100" (click)="saveClient()">
+        Save
+      </button>
     </div>
     <div class="col-sm-6">
       <div *ngIf="selectedClient.profilePicture">
