@@ -4,7 +4,7 @@ export class Inscription {
   dateInscription: Date | null;
   dateFinal: Date | null;
   client?: DocumentReference;
-  price!: DocumentReference;
+  price!: DocumentReference | null;
   subTotal!: number;
   iva!: number;
   total!: number;
