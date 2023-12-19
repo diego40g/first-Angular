@@ -10,6 +10,7 @@ import { Price } from '../models/price';
   styleUrls: ['./inscription.component.sass'],
 })
 export class InscriptionComponent {
+  IVA_VALUE = 0.12;
   inscription: Inscription = new Inscription();
   selectedClient: Client = new Client();
   selectedPrice: Price | undefined = new Price();
@@ -49,6 +50,10 @@ export class InscriptionComponent {
     const id = (evento.target as HTMLInputElement)?.value;
     this.selectedPrice = this.prices.find((x) => x.id == id);
     this.inscription.price = this.selectedPrice?.ref!;
+
+    this.inscription.subTotal = this.selectedPrice?.cost!;
+    this.inscription.iva = this.inscription?.subTotal * this.IVA_VALUE;
+    this.inscription.total = this.inscription.subTotal + this.inscription.iva;
 
     this.inscription.dateInscription = new Date();
 
