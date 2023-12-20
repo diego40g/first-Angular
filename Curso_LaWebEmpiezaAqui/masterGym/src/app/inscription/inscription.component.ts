@@ -44,63 +44,78 @@ export class InscriptionComponent {
 
   saveClient() {
     console.log(this.inscription);
+    if (this.inscription.validate().isValid) {
+      alert('Guardando a client');
+    } else {
+      alert(this.inscription.validate().message);
+    }
   }
 
   selectPrice(evento: any) {
     const id = (evento.target as HTMLInputElement)?.value;
-    this.selectedPrice = this.prices.find((x) => x.id == id);
-    this.inscription.price = this.selectedPrice?.ref!;
+    if (id != null) {
+      this.selectedPrice = this.prices.find((x) => x.id == id);
+      this.inscription.price = this.selectedPrice?.ref!;
 
-    this.inscription.subTotal = this.selectedPrice?.cost!;
-    this.inscription.iva = this.inscription?.subTotal * this.IVA_VALUE;
-    this.inscription.total = this.inscription.subTotal + this.inscription.iva;
+      this.inscription.subTotal = this.selectedPrice?.cost!;
+      this.inscription.iva = this.inscription?.subTotal * this.IVA_VALUE;
+      this.inscription.total = this.inscription.subTotal + this.inscription.iva;
 
-    this.inscription.dateInscription = new Date();
+      this.inscription.dateInscription = new Date();
 
-    if (this.selectedPrice?.durationType == '1') {
-      let day: number = this.selectedPrice?.duration!;
-      let finalDate = new Date(
-        this.inscription.dateInscription.getFullYear(),
-        this.inscription.dateInscription.getMonth(),
-        this.inscription.dateInscription.getDate() + day
-      );
-      this.inscription.dateFinal = finalDate;
-    }
-    if (this.selectedPrice?.durationType == '2') {
-      let day: number = this.selectedPrice?.duration! * 7;
-      let finalDate = new Date(
-        this.inscription.dateInscription.getFullYear(),
-        this.inscription.dateInscription.getMonth(),
-        this.inscription.dateInscription.getDate() + day
-      );
-      this.inscription.dateFinal = finalDate;
-    }
-    if (this.selectedPrice?.durationType == '3') {
-      let day: number = this.selectedPrice?.duration! * 15;
-      let finalDate = new Date(
-        this.inscription.dateInscription.getFullYear(),
-        this.inscription.dateInscription.getMonth(),
-        this.inscription.dateInscription.getDate() + day
-      );
-      this.inscription.dateFinal = finalDate;
-    }
-    if (this.selectedPrice?.durationType == '4') {
-      let anio: number = this.inscription.dateInscription.getFullYear();
-      let month: number =
-        this.selectedPrice?.duration! +
-        this.inscription.dateInscription.getMonth();
-      let day: number = this.inscription.dateInscription.getDate();
-      let finalDate = new Date(anio, month, day);
-      this.inscription.dateFinal = finalDate;
-    }
-    if (this.selectedPrice?.durationType == '5') {
-      let anio: number =
-        this.inscription.dateInscription.getFullYear() +
-        this.selectedPrice?.duration!;
-      let month: number = this.inscription.dateInscription.getMonth();
-      let day: number = this.inscription.dateInscription.getDate();
-      let finalDate = new Date(anio, month, day);
-      this.inscription.dateFinal = finalDate;
+      if (this.selectedPrice?.durationType == '1') {
+        let day: number = this.selectedPrice?.duration!;
+        let finalDate = new Date(
+          this.inscription.dateInscription.getFullYear(),
+          this.inscription.dateInscription.getMonth(),
+          this.inscription.dateInscription.getDate() + day
+        );
+        this.inscription.dateFinal = finalDate;
+      }
+      if (this.selectedPrice?.durationType == '2') {
+        let day: number = this.selectedPrice?.duration! * 7;
+        let finalDate = new Date(
+          this.inscription.dateInscription.getFullYear(),
+          this.inscription.dateInscription.getMonth(),
+          this.inscription.dateInscription.getDate() + day
+        );
+        this.inscription.dateFinal = finalDate;
+      }
+      if (this.selectedPrice?.durationType == '3') {
+        let day: number = this.selectedPrice?.duration! * 15;
+        let finalDate = new Date(
+          this.inscription.dateInscription.getFullYear(),
+          this.inscription.dateInscription.getMonth(),
+          this.inscription.dateInscription.getDate() + day
+        );
+        this.inscription.dateFinal = finalDate;
+      }
+      if (this.selectedPrice?.durationType == '4') {
+        let anio: number = this.inscription.dateInscription.getFullYear();
+        let month: number =
+          this.selectedPrice?.duration! +
+          this.inscription.dateInscription.getMonth();
+        let day: number = this.inscription.dateInscription.getDate();
+        let finalDate = new Date(anio, month, day);
+        this.inscription.dateFinal = finalDate;
+      }
+      if (this.selectedPrice?.durationType == '5') {
+        let anio: number =
+          this.inscription.dateInscription.getFullYear() +
+          this.selectedPrice?.duration!;
+        let month: number = this.inscription.dateInscription.getMonth();
+        let day: number = this.inscription.dateInscription.getDate();
+        let finalDate = new Date(anio, month, day);
+        this.inscription.dateFinal = finalDate;
+      }
+    } else {
+      this.selectedPrice = new Price();
+      this.inscription.dateInscription = null;
+      this.inscription.dateFinal = null;
+      this.inscription.price = null;
+      this.inscription.subTotal = 0;
+      this.inscription.iva = 0;
+      this.inscription.total = 0;
     }
   }
 }
