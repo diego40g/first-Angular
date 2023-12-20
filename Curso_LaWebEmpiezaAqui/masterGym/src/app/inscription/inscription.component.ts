@@ -45,7 +45,24 @@ export class InscriptionComponent {
   saveClient() {
     console.log(this.inscription);
     if (this.inscription.validate().isValid) {
-      alert('Guardando a client');
+      let addInscription: any = {
+        dateInscription: this.inscription.dateInscription,
+        dateFinal: this.inscription.dateFinal,
+        client: this.inscription.client,
+        price: this.inscription.price,
+        subTotal: this.inscription.subTotal,
+        iva: this.inscription.iva,
+        total: this.inscription.total,
+      };
+      this.db
+        .collection('inscriptions')
+        .add(addInscription)
+        .then((result) => {
+          alert('Guardando a client');
+        })
+        .catch((error) => {
+          alert(error);
+        });
     } else {
       alert(this.inscription.validate().message);
     }
