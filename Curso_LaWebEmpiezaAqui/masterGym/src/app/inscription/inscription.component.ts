@@ -3,6 +3,7 @@ import { Inscription } from '../models/inscription';
 import { Client } from '../models/client';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Price } from '../models/price';
+import { MessagesService } from '../services/messages.service';
 
 @Component({
   selector: 'app-inscription',
@@ -14,9 +15,10 @@ export class InscriptionComponent {
   inscription: Inscription = new Inscription();
   selectedClient: Client = new Client();
   selectedPrice: Price | undefined = new Price();
+  idPrice: string = 'null';
   prices: Price[] = new Array<Price>();
 
-  constructor(private db: AngularFirestore) {}
+  constructor(private db: AngularFirestore, private msj: MessagesService) {}
 
   ngOnInit(): void {
     this.db
@@ -58,13 +60,20 @@ export class InscriptionComponent {
         .collection('inscriptions')
         .add(addInscription)
         .then((result) => {
-          alert('Guardando a client');
+          this.inscription = new Inscription();
+          this.selectedClient = new Client();
+          this.selectedPrice = new Price();
+          this.idPrice = 'null';
+          this.msj.messageSuccess('Save', 'The cliente was saved successfully');
         })
         .catch((error) => {
-          alert(error);
+          this.msj.messageError('Error', error);
         });
     } else {
-      alert(this.inscription.validate().message);
+      this.msj.messageWarning(
+        'Validated form',
+        this.inscription.validate().message
+      );
     }
   }
 
