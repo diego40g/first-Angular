@@ -30,6 +30,7 @@ import { MessagesService } from './services/messages.service';
 import { PricesComponent } from './prices/prices.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ClientSelectComponent } from './client-select/client-select.component';
+import { InscriptionListComponent } from './inscription-list/inscription-list.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ClientSelectComponent } from './client-select/client-select.component';
     PricesComponent,
     InscriptionComponent,
     ClientSelectComponent,
+    InscriptionListComponent,
   ],
   imports: [
     BrowserModule,
