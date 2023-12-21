@@ -4,6 +4,7 @@ import { ClientListComponent } from './client-list/client-list.component';
 import { ClientAddComponent } from './client-add/client-add.component';
 import { PricesComponent } from './prices/prices.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { InscriptionListComponent } from './inscription-list/inscription-list.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'prices',
     component: PricesComponent,
+  },
+  {
+    path: 'inscription-list',
+    component: InscriptionListComponent,
   },
 ];
 
