@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Inscription } from '../models/inscription';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-inscription-list',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./inscription-list.component.sass']
 })
 export class InscriptionListComponent {
-
+  inscriptions: Inscription[] = [];
+  constructor(private db: AngularFirestore) { }
 }
