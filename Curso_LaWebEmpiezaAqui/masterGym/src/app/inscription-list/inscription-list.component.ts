@@ -8,7 +8,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./inscription-list.component.sass'],
 })
 export class InscriptionListComponent {
-  inscriptions: Inscription[] = [];
+  inscriptions: any[] = [];
   constructor(private db: AngularFirestore) {}
 
   ngOnInit(): void {
@@ -17,16 +17,21 @@ export class InscriptionListComponent {
       .get()
       .subscribe((result) => {
         result.forEach((inscription) => {
-          let inscriptionObject = inscription.data() as any;
-          inscriptionObject.id = inscription.id;
+          let inscriptionGetting = inscription.data() as any;
+          inscriptionGetting.id = inscription.id;
 
-          this.db
-            .doc(inscription.data().client.path)
+          let clientData = inscription.data().client;
+
+          console.log(inscription.data());
+
+          /*this.db
+            .doc(clientPath!.clientPath.path)
             .get()
             .subscribe((client) => {
+              inscriptionGetting.client = client.data();
+              this.inscriptions.push(inscriptionGetting);
               console.log(client.data());
-              inscriptionObject.client = client.data();
-            });
+            });*/
         });
       });
   }
