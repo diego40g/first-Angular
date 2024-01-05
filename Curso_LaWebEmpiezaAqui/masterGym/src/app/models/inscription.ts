@@ -1,7 +1,5 @@
-import {
-  DocumentReference,
-  SnapshotOptions,
-} from '@angular/fire/compat/firestore';
+import { DocumentReference } from '@angular/fire/compat/firestore';
+export type Timestamp = { seconds: number; nanoseconds: number };
 
 export class Inscription {
   id: string | undefined | null;
