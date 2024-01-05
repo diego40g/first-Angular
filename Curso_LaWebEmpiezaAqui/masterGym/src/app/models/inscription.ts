@@ -1,9 +1,13 @@
-import { DocumentReference } from '@angular/fire/compat/firestore';
+import {
+  DocumentReference,
+  SnapshotOptions,
+} from '@angular/fire/compat/firestore';
 
 export class Inscription {
+  id: string | undefined | null;
   dateInscription: Date | null;
   dateFinal: Date | null;
-  client?: DocumentReference;
+  client!: DocumentReference | undefined | SnapshotOptions;
   price!: DocumentReference | null;
   subTotal!: number;
   iva!: number;
