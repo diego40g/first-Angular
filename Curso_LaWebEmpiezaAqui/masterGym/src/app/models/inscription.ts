@@ -7,7 +7,7 @@ export class Inscription {
   id: string | undefined | null;
   dateInscription: Date | null;
   dateFinal: Date | null;
-  client!: DocumentReference | undefined | SnapshotOptions;
+  client?: DocumentReference;
   price!: DocumentReference | null;
   subTotal!: number;
   iva!: number;
