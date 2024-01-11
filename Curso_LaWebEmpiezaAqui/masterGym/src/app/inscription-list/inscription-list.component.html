@@ -1,6 +1,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">Id</th>
       <th scope="col">Client</th>
       <th scope="col">Date Init</th>
       <th scope="col">End Date</th>
@@ -8,11 +9,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+    <tr *ngFor="let inscription of inscriptions; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        {{ inscription.client.firstname }} {{ inscription.client.lastname }}
+      </td>
+      <td>{{ inscription.dateInscription | date }}</td>
+      <td>{{ inscription.dateFinal | date }}</td>
+      <td>
+        <img
+          [src]="inscription.client.profilePicture"
+          alt=""
+          style="width: 50px"
+        />
+      </td>
     </tr>
   </tbody>
 </table>
